@@ -1,14 +1,16 @@
-import { Global } from "@emotion/react";
+import { Global, ThemeProvider } from "@emotion/react";
 import React from "react";
 import Router from "./Router";
-import reset from "./reset";
+import reset from "./styles/reset";
+import theme from "./styles/theme";
+import "./styles/font.css";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Global styles={reset} />
       <Router />
-    </div>
+    </ThemeProvider>
   );
 };
 
