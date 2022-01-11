@@ -13,14 +13,25 @@ type Props = {
   setInput: Dispatch<SetStateAction<string>>;
   input: string;
   className?: string;
+  isPassword?: boolean;
 };
 
-const TextInput: React.FC<Props> = ({ input, setInput, className }: Props) => {
+const TextInput: React.FC<Props> = ({
+  input,
+  setInput,
+  className,
+  isPassword,
+}: Props) => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) =>
     setInput(e.currentTarget.value);
 
   return (
-    <Container className={className} onChange={handleChange} value={input} />
+    <Container
+      className={className}
+      onChange={handleChange}
+      value={input}
+      type={isPassword ? "password" : "text"}
+    />
   );
 };
 
