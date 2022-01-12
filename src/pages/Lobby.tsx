@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 import ButtonRound from "../components/atoms/ButtonRound";
 import TextRighteous from "../components/atoms/TextRighteous";
 import Topbar from "../components/molecules/Topbar";
+import Sidebar from "../components/atoms/Sidebar";
 import theme from "../styles/theme";
+import { useState } from "react";
 
 const TitleContainer = styled.div`
   display: flex;
@@ -15,6 +17,7 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding: 0px 15% 0px 15%;
 `;
 
 const PlayText = styled(TextRighteous)`
@@ -28,14 +31,17 @@ const SubText = styled(TextRighteous)`
 const ModeButton = styled(ButtonRound)`
   color: black;
   background-color: ${theme.colors.lightGray};
-  width: 25vw;
-  height: 25vw;
+  width: 15vw;
+  height: 15vw;
 `;
 
 const Lobby: React.FC = () => {
+  const [sidebarSwitch, setSidebarSwitch] = useState(false);
+
   return (
     <>
-      <Topbar />
+      <Sidebar isActive={sidebarSwitch}></Sidebar>
+      <Topbar onClickMenu={() => setSidebarSwitch((prev) => prev !== true)} />
       <TitleContainer>
         <PlayText>PLAY</PlayText>
         <SubText>O-MOK</SubText>
