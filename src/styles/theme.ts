@@ -4,6 +4,9 @@ declare module "@emotion/react" {
   export interface Theme {
     colors: {
       charcoal: string;
+      gray: string;
+      gold: string;
+      lightGray: string;
     };
     fonts: {
       righteous: string;
@@ -19,6 +22,9 @@ declare module "@emotion/react" {
 const theme: Theme = {
   colors: {
     charcoal: "#363636",
+    gray: "#9D9D9D",
+    gold: "#E4B04A",
+    lightGray: "#C4C4C4",
   },
   fonts: {
     righteous: "righteous",
