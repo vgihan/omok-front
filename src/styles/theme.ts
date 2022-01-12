@@ -7,6 +7,7 @@ declare module "@emotion/react" {
       gray: string;
       gold: string;
       lightGray: string;
+      cottonWhite: string;
     };
     fonts: {
       righteous: string;
@@ -25,6 +26,7 @@ const theme: Theme = {
     gray: "#9D9D9D",
     gold: "#E4B04A",
     lightGray: "#C4C4C4",
+    cottonWhite: "#FDFBFB",
   },
   fonts: {
     righteous: "righteous",
