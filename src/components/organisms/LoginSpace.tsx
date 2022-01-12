@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useState } from "react";
 import TextInput from "../atoms/TextInput";
 import TextRighteous from "../atoms/TextRighteous";
-import ButtonColorless from "../atoms/ButtonColorless";
+import ButtonRound from "../atoms/ButtonRound";
 
 const InputLabel = styled(TextRighteous)`
   font-size: 30px;
@@ -21,6 +21,10 @@ const LoginInput = styled(TextInput)`
   font-size: 30px;
   width: 275px;
   height: 100%;
+`;
+
+const LoginButton = styled(ButtonRound)`
+  background-color: transparent;
 `;
 
 const InputContainer = styled.div`
@@ -63,7 +67,7 @@ const LoginSpace: React.FC = () => {
         </Line>
       </InputContainer>
       <ButtonContainer>
-        <ButtonColorless>Login</ButtonColorless>
+        <LoginButton>Login</LoginButton>
       </ButtonContainer>
     </Container>
   );

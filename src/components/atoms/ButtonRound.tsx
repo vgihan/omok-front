@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 import theme from "../../styles/theme";
 
-const ButtonColorless = styled.button`
+const ButtonRound = styled.button`
   font-family: ${theme.fonts.righteous};
   font-size: 50px;
-  background-color: transparent;
   border: none;
+  border-radius: 10px;
   color: white;
   width: 100%;
   height: 100%;
   cursor: pointer;
 `;
 
-export default ButtonColorless;
+export default ButtonRound;
