@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import TextRighteous from "../components/atoms/TextRighteous";
 import LoginSpace from "../components/organisms/LoginSpace";
+import Anchor from "../components/atoms/Anchor";
 
 const Container = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const Title = styled(TextRighteous)`
 
 const Box = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
@@ -28,6 +30,7 @@ const TitleBox = styled(Box)`
 `;
 
 const ContentBox = styled(Box)`
+  row-gap: 20px;
   height: 20%;
 `;
 
@@ -38,7 +41,8 @@ const Main: React.FC = () => {
         <Title>O-MOK</Title>
       </TitleBox>
       <ContentBox>
-        <LoginSpace></LoginSpace>
+        <LoginSpace />
+        <Anchor href="#">Join</Anchor>
       </ContentBox>
     </Container>
   );
