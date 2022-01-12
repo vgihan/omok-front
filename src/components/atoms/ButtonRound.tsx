@@ -3,7 +3,7 @@ import theme from "../../styles/theme";
 
 const ButtonRound = styled.button`
   font-family: ${theme.fonts.righteous};
-  font-size: 40px;
+  font-size: 3vw;
   border: none;
   border-radius: 20px;
   color: white;
