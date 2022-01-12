@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { MouseEventHandler } from "react";
 import TextRighteous from "../atoms/TextRighteous";
 
 const Container = styled.div`
@@ -14,12 +15,18 @@ const MenuButton = styled.img`
   cursor: pointer;
 `;
 
-const Topbar: React.FC = () => {
+type Props = {
+  onClickMenu: Function;
+};
+
+const Topbar: React.FC<Props> = ({ onClickMenu }: Props) => {
+  const handleOnClickMenu: MouseEventHandler = (e) => onClickMenu();
   return (
     <Container>
       <MenuButton
         alt="collapsed_menu"
         src="img/collapsed_menu.svg"
+        onClick={handleOnClickMenu}
       ></MenuButton>
       <TextRighteous>O-MOK</TextRighteous>
     </Container>
