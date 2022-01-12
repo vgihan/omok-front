@@ -128,8 +128,7 @@ const Reset = css`
   }
   html,
   body,
-  #root,
-  #root > div {
+  #root {
     height: 100%;
     background-color: ${theme.colors.charcoal};
   }
