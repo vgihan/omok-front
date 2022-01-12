@@ -3,9 +3,9 @@ import theme from "../../styles/theme";
 
 const ButtonRound = styled.button`
   font-family: ${theme.fonts.righteous};
-  font-size: 50px;
+  font-size: 40px;
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   color: white;
   width: 100%;
   height: 100%;
