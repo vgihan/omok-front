@@ -6,25 +6,14 @@ const Container = styled.img`
   background-color: ${theme.colors.gray};
   width: 100px;
   height: 100px;
-  @media (max-width: ${theme.breakpoints.lg}) {
-    width: 100px;
-    height: 100px;
-  }
-  @media (max-width: ${theme.breakpoints.md}) {
-    width: 80px;
-    height: 80px;
-  }
-  @media (max-width: ${theme.breakpoints.sm}) {
-    width: 60px;
-    height: 60px;
-  }
 `;
 
 type Props = {
   src: string;
+  className: string;
 };
 
-const ProfileImage: React.FC<Props> = ({ src }: Props) => {
+const ProfileImage: React.FC<Props> = ({ src, className }: Props) => {
   return (
     <Container
       onError={({ currentTarget }) => {
@@ -33,6 +22,7 @@ const ProfileImage: React.FC<Props> = ({ src }: Props) => {
       }}
       src={src}
       alt="profile"
+      className={className}
     ></Container>
   );
 };
