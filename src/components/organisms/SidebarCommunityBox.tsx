@@ -16,7 +16,8 @@ const Friends = styled.ul`
   display: flex;
   flex-direction: column;
   width: 100%;
-  column-gap: 10px;
+  height: 40%;
+  overflow-y: auto;
 `;
 
 const Friend = styled.li`
@@ -66,16 +67,24 @@ const FightButton = styled(ButtonRound)`
 
 const SidebarRankBox: React.FC = () => {
   const friends = [
-    { img: "abc", name: "kingora" },
-    { img: "abc", name: "D_OH.2" },
-    { img: "abc", name: "Z_NXII" },
+    { img: "abc", name: "kingora", id: "1" },
+    { img: "abc", name: "D_OH.2", id: "2" },
+    { img: "abc", name: "D_OH.2", id: "3" },
+    { img: "abc", name: "D_OH.2", id: "4" },
+    { img: "abc", name: "D_OH.2", id: "5" },
+    { img: "abc", name: "D_OH.2", id: "6" },
+    { img: "abc", name: "D_OH.2", id: "7" },
+    { img: "abc", name: "D_OH.2", id: "8" },
+    { img: "abc", name: "D_OH.2", id: "9" },
+    { img: "abc", name: "D_OH.2", id: "10" },
+    { img: "abc", name: "Z_NXII", id: "11" },
   ];
   return (
     <Container>
       <SidebarBoxTitle>Community</SidebarBoxTitle>
       <Friends>
         {friends.map((friend) => (
-          <Friend>
+          <Friend key={friend.id}>
             <FriendProfileImage src={friend.img} className="friend" />
             <Name>{friend.name}</Name>
             <FightButton>fight</FightButton>
