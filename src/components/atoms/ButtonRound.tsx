@@ -6,8 +6,6 @@ const ButtonRound = styled.button`
   border: none;
   border-radius: 2vmin;
   color: white;
-  width: 100%;
-  height: 100%;
   cursor: pointer;
 `;
 
