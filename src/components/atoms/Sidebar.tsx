@@ -9,7 +9,9 @@ const Container = styled.div<Props>`
   background-color: ${theme.colors.cottonWhite};
   border-radius: 3vmin;
   left: ${({ isActive }) => (isActive ? "0" : "-150%")};
-  position: absolute;
+  position: fixed;
+  bottom: 0;
+  top: 0;
   padding: 40px;
   width: 340px;
   box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.3);
