@@ -24,6 +24,7 @@ const LoginInput = styled(TextInput)`
 `;
 
 const LoginButton = styled(ButtonRound)`
+  font-size: 4vmin;
   background-color: transparent;
 `;
 
