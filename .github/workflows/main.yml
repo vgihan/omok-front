@@ -22,6 +22,6 @@ jobs:
             cd omok-front
             git fetch origin main
             git rebase origin/main
-            pm2 kill
             yarn install
             yarn run build
+            sudo service nginx restart
