@@ -25,4 +25,3 @@ jobs:
             git rebase origin/main
             yarn install
             yarn run build
-            sudo service nginx restart
