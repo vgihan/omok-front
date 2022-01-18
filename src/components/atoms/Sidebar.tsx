@@ -16,6 +16,7 @@ const Container = styled.div<Props>`
   width: 340px;
   box-shadow: 2px 2px 20px 4px rgba(0, 0, 0, 0.3);
   transition: all 0.5s;
+  z-index: 10;
 
   @media (max-width: ${theme.breakpoints.lg}) {
     width: 340px;
@@ -39,7 +40,6 @@ const Sidebar: React.FC<PropsWithChildren<Props>> = ({
   isActive,
   children,
 }: PropsWithChildren<Props>) => {
-  console.log(isActive);
   return <Container isActive={isActive}>{children}</Container>;
 };
 
