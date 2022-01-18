@@ -16,7 +16,7 @@ const Line = styled.div`
   opacity: 50%;
 `;
 
-const ChatSpace: React.FC = () => {
+const ChatRecordBox: React.FC = () => {
   return (
     <Container>
       <Line />
@@ -24,4 +24,4 @@ const ChatSpace: React.FC = () => {
   );
 };
 
-export default ChatSpace;
+export default ChatRecordBox;

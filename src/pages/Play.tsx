@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+
 import useOutsideClick from "../hooks/useOutsideClick";
 import Topbar from "../components/molecules/Topbar";
 import Sidebar from "../components/atoms/Sidebar";
@@ -6,10 +7,9 @@ import SidebarProfileBox from "../components/organisms/SidebarProfileBox";
 import SidebarRankBox from "../components/organisms/SidebarRankBox";
 import SidebarCommunityBox from "../components/organisms/SidebarCommunityBox";
 import InGameUserProfile from "../components/molecules/InGameUserProfile";
-import ChatSpace from "../components/molecules/ChatSpace";
 import Button3d from "../components/molecules/Button3d";
+import ChatSpace from "../components/organisms/ChatSpace";
 
-import ChatInputSpace from "../components/molecules/ChatInputSpace";
 import { useRef } from "react";
 import theme from "../styles/theme";
 
@@ -67,7 +67,6 @@ const Play: React.FC = () => {
         </div>
         <div>
           <ChatSpace />
-          <ChatInputSpace />
         </div>
         <ButtonContainer>
           <PlaceButton width="25" height="25" fontSize="6">
