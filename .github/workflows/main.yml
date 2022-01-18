@@ -21,6 +21,7 @@ jobs:
           script: |
             cd omok-front
             git fetch origin main
+            git reset --hard
             git rebase origin/main
             yarn install
             yarn run build
