@@ -37,7 +37,7 @@ const SendButton = styled(ButtonRound)`
   height: 100%;
 `;
 
-const ChatInputSpace: React.FC = () => {
+const ChatInputBox: React.FC = () => {
   const [chat, setChat] = useState("");
 
   return (
@@ -48,4 +48,4 @@ const ChatInputSpace: React.FC = () => {
   );
 };
 
-export default ChatInputSpace;
+export default ChatInputBox;
