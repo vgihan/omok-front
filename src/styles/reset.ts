@@ -82,7 +82,9 @@ const Reset = css`
   time,
   mark,
   audio,
-  video {
+  video,
+  input,
+  button {
     margin: 0;
     padding: 0;
     border: 0;
