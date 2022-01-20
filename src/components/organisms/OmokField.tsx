@@ -2,125 +2,117 @@ import styled from "@emotion/styled";
 import { MouseEventHandler, useState } from "react";
 import theme from "../../styles/theme";
 
-const SvgBoard = styled.svg`
-  height: 100%;
-  width: 100%;
+const SvgSpace = styled.svg`
+  position: absolute;
+  top: -5vmin;
+  left: -5vmin;
+  width: 80vmin;
+  height: 80vmin;
   cursor: pointer;
 `;
 
-const Line = styled.line`
-  stroke: #000;
-  stroke-width: 1;
-`;
-
-const Rect = styled.rect`
+const Block = styled.circle`
   fill: transparent;
-  :hover {
-    stroke: ${theme.colors.opacityCottonWhite};
+  ${({ type }) =>
+    type !== "none"
+      ? ""
+      : `:hover {
+    stroke: ${theme.colors.cottonWhite};
     stroke-width: 5px;
   }
   :active {
     stroke: black;
     stroke-width: 5px;
-  }
+  }`}
 `;
 
-const ONE_SPACE = 50;
-const END_COORDINATE = 750;
-const CORRECTION_LINE_CONSTANT = 0.5;
-const FOCUS_BOX_SIZE = 32;
-
-type BallInfo = {
-  type: "black" | "white";
-  pos: Pos;
+type Stones = {
+  [pos in Pos]?: Stone;
 };
-
-type Pos = {
-  x: number;
-  y: number;
+type Stone = {
+  type: "black" | "white" | "none";
 };
+type Pos = `${PosRange},${PosRange}`;
+type PosRange =
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9"
+  | "10"
+  | "11"
+  | "12"
+  | "13"
+  | "14"
+  | "15";
 
-const OmokField: React.FC = () => {
-  const [ballsInfo, setBallsInfo] = useState<BallInfo[]>([]);
-  const [selected, setSelected] = useState<Pos | null>(null);
-  const coordinate = Array.from({ length: 15 }).map((v, i) => i + 1);
+const OmokWrapper: React.FC = () => {
+  const coordinate: PosRange[] = Array.from({ length: 15 }).map(
+    (v, i) => `${i + 1}` as PosRange
+  );
+  const init: Stones = coordinate.reduce((stones: Stones, x: PosRange) => {
+    coordinate.forEach(
+      (y: PosRange) => (stones[`${x},${y}`] = { type: "none" })
+    );
+    return stones;
+  }, {});
+  const [stones, setStones] = useState<Stones>(init);
+  const [selected, setSelected] = useState<Pos | null>();
 
-  const handleClickField: MouseEventHandler = (e) => {
-    const x = e.currentTarget.getAttribute("data-x");
-    const y = e.currentTarget.getAttribute("data-y");
-    if (!x || !y) return;
+  const handleClickBlock: MouseEventHandler = (e) => {
+    if (e.currentTarget.getAttribute("type") !== "none") return;
 
-    setSelected({ x: parseInt(x), y: parseInt(y) });
+    const xAttribute = e.currentTarget.getAttribute("cx");
+    const yAttribute = e.currentTarget.getAttribute("cy");
+
+    if (!xAttribute || !yAttribute) return;
+
+    const x = `${parseInt(xAttribute) / 50}` as PosRange;
+    const y = `${parseInt(yAttribute) / 50}` as PosRange;
+
+    setSelected(`${x},${y}`);
   };
 
   return (
-    <SvgBoard viewBox="0 0 800 800" onClick={handleClickField}>
+    <SvgSpace viewBox="0 0 800 800">
       <defs>
         <linearGradient id="black" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#999"></stop>
-          <stop offset="50%" stop-color="#363636"></stop>
-          <stop offset="100%" stop-color="#000"></stop>
+          <stop offset="0%" stopColor="#999"></stop>
+          <stop offset="50%" stopColor="#363636"></stop>
+          <stop offset="100%" stopColor="#000"></stop>
         </linearGradient>
-      </defs>
-      <defs>
         <linearGradient id="white" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="40%" stop-color="white"></stop>
-          <stop offset="90%" stop-color="#555"></stop>
+          <stop offset="40%" stopColor="white"></stop>
+          <stop offset="90%" stopColor="#555"></stop>
         </linearGradient>
       </defs>
-      <circle cx="200" cy="200" r="6" fill="black" />
-      <circle cx="200" cy="600" r="6" fill="black" />
-      <circle cx="600" cy="200" r="6" fill="black" />
-      <circle cx="600" cy="600" r="6" fill="black" />
-      {coordinate.map((pos) => (
-        <Line
-          key={"x" + pos}
-          x1={pos * ONE_SPACE + CORRECTION_LINE_CONSTANT}
-          y1={ONE_SPACE + CORRECTION_LINE_CONSTANT}
-          x2={pos * ONE_SPACE + CORRECTION_LINE_CONSTANT}
-          y2={END_COORDINATE + CORRECTION_LINE_CONSTANT}
-        />
-      ))}
-      {coordinate.map((pos) => (
-        <Line
-          key={"y" + pos}
-          x1={ONE_SPACE + CORRECTION_LINE_CONSTANT}
-          y1={pos * ONE_SPACE + CORRECTION_LINE_CONSTANT}
-          x2={END_COORDINATE + CORRECTION_LINE_CONSTANT}
-          y2={pos * ONE_SPACE + CORRECTION_LINE_CONSTANT}
-        />
-      ))}
-      {coordinate.map((x) =>
-        coordinate.map((y) => {
-          const isSelected = selected && selected.x === x && selected.y === y;
-          return (
-            <Rect
-              key={`${x},${y}`}
-              data-x={x}
-              data-y={y}
-              width={FOCUS_BOX_SIZE}
-              height={FOCUS_BOX_SIZE}
-              x={x * ONE_SPACE + CORRECTION_LINE_CONSTANT - FOCUS_BOX_SIZE / 2}
-              y={y * ONE_SPACE + CORRECTION_LINE_CONSTANT - FOCUS_BOX_SIZE / 2}
-              rx={3}
-              ry={3}
-              onClick={handleClickField}
-              stroke={isSelected ? "black" : ""}
-              strokeWidth={isSelected ? "5px" : ""}
-            />
-          );
-        })
-      )}
-      {ballsInfo.map((info) => (
-        <circle
-          cx={`${info.pos.x * ONE_SPACE}`}
-          cy={`${info.pos.y * ONE_SPACE}`}
-          r="23"
-          fill={`url('#${info.type}')`}
-        />
-      ))}
-    </SvgBoard>
+      <circle cx="200.5" cy="200.5" r="6" fill="black" />
+      <circle cx="200.5" cy="600.5" r="6" fill="black" />
+      <circle cx="600.5" cy="200.5" r="6" fill="black" />
+      <circle cx="600.5" cy="600.5" r="6" fill="black" />
+      {Object.keys(stones).map((pos: string) => {
+        const [x, y] = pos.split(",");
+        const type = stones[pos as Pos]?.type;
+        return (
+          <Block
+            key={pos}
+            r={type === "none" ? 18 : 23}
+            cx={`${parseInt(x) * 50}`}
+            cy={`${parseInt(y) * 50}`}
+            stroke={selected === pos ? "black" : ""}
+            strokeWidth={selected === pos ? "5px" : ""}
+            fill={type === "none" ? "transparent" : `url('#${type}')`}
+            type={type}
+            onClick={handleClickBlock}
+          />
+        );
+      })}
+    </SvgSpace>
   );
 };
 
-export default OmokField;
+export default OmokWrapper;
