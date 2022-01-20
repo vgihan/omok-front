@@ -14,7 +14,7 @@ const ProgressBox = styled.div<{ time: number }>`
   width: 100%;
   height: 100%;
   background: ${theme.colors.lightGray};
-  animation: timeFlow 3s linear forwards;
+  animation: timeFlow ${({ time }) => time}s linear forwards;
   @keyframes timeFlow {
     from {
       width: 100%;
