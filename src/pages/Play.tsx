@@ -9,15 +9,17 @@ import SidebarCommunityBox from "../components/organisms/SidebarCommunityBox";
 import InGameUserProfile from "../components/molecules/InGameUserProfile";
 import Button3d from "../components/molecules/Button3d";
 import ChatSpace from "../components/organisms/ChatSpace";
+import OmokWrapper from "../components/organisms/OmokWrapper";
+import TimeBar from "../components/atoms/TimeBar";
 
 import { useRef } from "react";
 import theme from "../styles/theme";
 
 const GridContainer = styled.div`
   display: inline-grid;
-  grid-template-columns: 22vw 80vh 22vw;
-  grid-template-rows: 33vh 40vh;
-  grid-gap: 7vh 1vw;
+  grid-template-columns: 22vw 80vmin 22vw;
+  grid-template-rows: 33vmin 40vmin;
+  grid-gap: 7vmin 1vw;
   justify-content: center;
   width: 100%;
 `;
@@ -28,12 +30,18 @@ const ButtonContainer = styled.div`
   justify-content: end;
   align-items: end;
 `;
+
 const FieldContainer = styled.div`
   grid-column: 2 / 3;
   grid-row: 1 / 3;
   box-sizing: border-box;
   background-color: ${theme.colors.lightGray};
   border-radius: 3%;
+`;
+
+const TimeBarContainer = styled.div`
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
 `;
 
 const PlaceButton = styled(Button3d)`
@@ -76,7 +84,12 @@ const Play: React.FC = () => {
             기권
           </SurrenderButton>
         </ButtonContainer>
-        <FieldContainer></FieldContainer>
+        <FieldContainer>
+          <OmokWrapper />
+        </FieldContainer>
+        <TimeBarContainer>
+          <TimeBar />
+        </TimeBarContainer>
       </GridContainer>
     </>
   );
