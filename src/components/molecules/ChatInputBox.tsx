@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import React, { useState } from "react";
+import React, { KeyboardEventHandler, useState } from "react";
 import theme from "../../styles/theme";
+import { Chat } from "../../types/chat";
 import ButtonRound from "../atoms/ButtonRound";
 import TextInput from "../atoms/TextInput";
 
@@ -37,13 +38,33 @@ const SendButton = styled(ButtonRound)`
   height: 100%;
 `;
 
-const ChatInputBox: React.FC = () => {
+type Props = {
+  sendChat: (chat: Chat) => void;
+};
+
+const ChatInputBox: React.FC<Props> = ({ sendChat }: Props) => {
   const [chat, setChat] = useState("");
+
+  const sendChatAndClear = () => {
+    if (!chat) return;
+    sendChat({ type: "all", sender: "vgihan", content: chat });
+    setChat("");
+  };
+  const handleKeyUp: KeyboardEventHandler = (e) => {
+    if (e.key === "Enter") {
+      sendChatAndClear();
+    }
+  };
 
   return (
     <Container>
-      <ChatTextInput className="chat" input={chat} setInput={setChat} />
-      <SendButton>전송</SendButton>
+      <ChatTextInput
+        className="chat"
+        input={chat}
+        setInput={setChat}
+        onKeyUp={handleKeyUp}
+      />
+      <SendButton onClick={sendChatAndClear}>전송</SendButton>
     </Container>
   );
 };
