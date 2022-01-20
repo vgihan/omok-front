@@ -29,10 +29,18 @@ const RecordContainer = styled.ul`
   );
   -webkit-mask-size: 10%;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: end;
   row-gap: 6px;
   overflow-y: auto;
+  height: 100%;
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: ${theme.colors.charcoal};
+    border-radius: 10px;
+  }
 `;
 
 const AllChat = styled(ChatElement)`
