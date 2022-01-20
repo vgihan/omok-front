@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, KeyboardEventHandler, SetStateAction } from "react";
 
 const Container = styled.input`
   background-color: white;
@@ -14,6 +14,7 @@ type Props = {
   input: string;
   className?: string;
   isPassword?: boolean;
+  onKeyUp?: KeyboardEventHandler;
 };
 
 const TextInput: React.FC<Props> = ({
@@ -21,6 +22,7 @@ const TextInput: React.FC<Props> = ({
   setInput,
   className,
   isPassword,
+  onKeyUp,
 }: Props) => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) =>
     setInput(e.currentTarget.value);
@@ -31,6 +33,7 @@ const TextInput: React.FC<Props> = ({
       onChange={handleChange}
       value={input}
       type={isPassword ? "password" : "text"}
+      onKeyUp={onKeyUp}
     />
   );
 };
