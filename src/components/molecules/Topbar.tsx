@@ -1,6 +1,11 @@
 import styled from "@emotion/styled";
-import { MouseEventHandler } from "react";
+import { useRef } from "react";
+import useOutsideClick from "../../hooks/useOutsideClick";
+import Sidebar from "../atoms/Sidebar";
 import TextRighteous from "../atoms/TextRighteous";
+import SidebarProfileBox from "../organisms/SidebarProfileBox";
+import SidebarRankBox from "../organisms/SidebarRankBox";
+import SidebarCommunityBox from "../organisms/SidebarCommunityBox";
 
 const Container = styled.div`
   display: flex;
@@ -15,18 +20,22 @@ const MenuButton = styled.img`
   cursor: pointer;
 `;
 
-type Props = {
-  onClickMenu: Function;
-};
-
-const Topbar: React.FC<Props> = ({ onClickMenu }: Props) => {
-  const handleOnClickMenu: MouseEventHandler = (e) => onClickMenu();
+const Topbar: React.FC = () => {
+  const TopbarRef = useRef(null);
+  const { isClicked, setIsClicked } = useOutsideClick(TopbarRef);
   return (
     <Container>
+      <div ref={TopbarRef}>
+        <Sidebar isActive={isClicked}>
+          <SidebarProfileBox />
+          <SidebarRankBox />
+          <SidebarCommunityBox />
+        </Sidebar>
+      </div>
       <MenuButton
         alt="collapsed_menu"
         src="img/collapsed_menu.svg"
-        onClick={handleOnClickMenu}
+        onClick={() => setIsClicked(true)}
       ></MenuButton>
       <TextRighteous>O-MOK</TextRighteous>
     </Container>
