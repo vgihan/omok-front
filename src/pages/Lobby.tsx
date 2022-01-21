@@ -1,14 +1,8 @@
 import styled from "@emotion/styled";
-import useOutsideClick from "../hooks/useOutsideClick";
 import ButtonRound from "../components/atoms/ButtonRound";
 import TextRighteous from "../components/atoms/TextRighteous";
 import Topbar from "../components/molecules/Topbar";
-import Sidebar from "../components/atoms/Sidebar";
-import SidebarProfileBox from "../components/organisms/SidebarProfileBox";
-import SidebarRankBox from "../components/organisms/SidebarRankBox";
-import SidebarCommunityBox from "../components/organisms/SidebarCommunityBox";
 import theme from "../styles/theme";
-import { useRef } from "react";
 
 const TitleContainer = styled.div`
   display: flex;
@@ -68,19 +62,9 @@ const ModeButton = styled(ButtonRound)`
 `;
 
 const Lobby: React.FC = () => {
-  const TopbarRef = useRef(null);
-  const { isClicked, setIsClicked } = useOutsideClick(TopbarRef);
-
   return (
     <>
-      <div ref={TopbarRef}>
-        <Sidebar isActive={isClicked}>
-          <SidebarProfileBox />
-          <SidebarRankBox />
-          <SidebarCommunityBox />
-        </Sidebar>
-      </div>
-      <Topbar onClickMenu={() => setIsClicked(true)} />
+      <Topbar />
       <TitleContainer>
         <PlayText>PLAY</PlayText>
         <SubText>O-MOK</SubText>

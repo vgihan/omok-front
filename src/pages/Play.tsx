@@ -1,18 +1,12 @@
 import styled from "@emotion/styled";
 
-import useOutsideClick from "../hooks/useOutsideClick";
 import Topbar from "../components/molecules/Topbar";
-import Sidebar from "../components/atoms/Sidebar";
-import SidebarProfileBox from "../components/organisms/SidebarProfileBox";
-import SidebarRankBox from "../components/organisms/SidebarRankBox";
-import SidebarCommunityBox from "../components/organisms/SidebarCommunityBox";
 import InGameUserProfile from "../components/molecules/InGameUserProfile";
 import Button3d from "../components/molecules/Button3d";
 import ChatSpace from "../components/organisms/ChatSpace";
 import OmokWrapper from "../components/organisms/OmokWrapper";
 import TimeBar from "../components/atoms/TimeBar";
 
-import { useRef } from "react";
 import theme from "../styles/theme";
 
 const GridContainer = styled.div`
@@ -53,19 +47,9 @@ const SurrenderButton = styled(Button3d)`
 `;
 
 const Play: React.FC = () => {
-  const TopbarRef = useRef(null);
-  const { isClicked, setIsClicked } = useOutsideClick(TopbarRef);
-
   return (
     <>
-      <div ref={TopbarRef}>
-        <Sidebar isActive={isClicked}>
-          <SidebarProfileBox />
-          <SidebarRankBox />
-          <SidebarCommunityBox />
-        </Sidebar>
-      </div>
-      <Topbar onClickMenu={() => setIsClicked(true)} />
+      <Topbar />
       <GridContainer>
         <div>
           <InGameUserProfile color="white" name="NAME"></InGameUserProfile>

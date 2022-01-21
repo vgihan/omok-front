@@ -50,7 +50,7 @@ type PosRange =
   | "14"
   | "15";
 
-const OmokWrapper: React.FC = () => {
+const OmokField: React.FC = () => {
   const coordinate: PosRange[] = Array.from({ length: 15 }).map(
     (v, i) => `${i + 1}` as PosRange
   );
@@ -115,4 +115,4 @@ const OmokWrapper: React.FC = () => {
   );
 };
 
-export default OmokWrapper;
+export default OmokField;
