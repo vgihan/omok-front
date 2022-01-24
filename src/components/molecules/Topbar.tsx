@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { useRef } from "react";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import Sidebar from "../atoms/Sidebar";
 import Portal from "../atoms/Portal";
@@ -23,8 +22,7 @@ const MenuButton = styled.img`
 `;
 
 const Topbar: React.FC = () => {
-  const TopbarRef = useRef(null);
-  const { isClicked, setIsClicked } = useOutsideClick(TopbarRef);
+  const { isClicked, setIsClicked } = useOutsideClick();
   return (
     <Container>
       <Portal>
