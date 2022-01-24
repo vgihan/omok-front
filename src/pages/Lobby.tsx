@@ -1,87 +1,63 @@
 import styled from "@emotion/styled";
-import ButtonRound from "../components/atoms/ButtonRound";
 import TextRighteous from "../components/atoms/TextRighteous";
 import Topbar from "../components/molecules/Topbar";
+import LobbyRoomList from "../components/organisms/LobbyRoomList";
+import LobbyButtonWrapper from "../components/organisms/LobbyButtonWrapper";
 import theme from "../styles/theme";
 
-const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: 22fr 10fr;
+  grid-template-rows: 10fr 30fr;
+  grid-column-gap: 7vmin;
   justify-content: center;
-  height: 40%;
+  position: absolute;
+  top: 11vh;
+  bottom: 0;
+  width: 100%;
+  padding: 0 7vmin 7vmin 7vmin;
+  box-sizing: border-box;
 `;
 
-const ButtonContainer = styled.div`
+const TitleBox = styled.div`
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  text-align: center;
+`;
+
+const Title = styled(TextRighteous)`
+  font-size: 12vh;
+  color: ${theme.colors.gray};
+`;
+
+const SubTitle = styled(TextRighteous)`
+  font-size: 4vh;
+  color: ${theme.colors.gray};
+`;
+
+const RoomSpace = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  column-gap: 10vw;
-`;
-
-const PlayText = styled(TextRighteous)`
-  font-size: 150px;
-  @media (max-width: ${theme.breakpoints.lg}) {
-    font-size: 150px;
-  }
-  @media (max-width: ${theme.breakpoints.md}) {
-    font-size: 100px;
-  }
-`;
-
-const SubText = styled(TextRighteous)`
-  font-size: 70px;
-  @media (max-width: ${theme.breakpoints.lg}) {
-    font-size: 70px;
-  }
-  @media (max-width: ${theme.breakpoints.md}) {
-    font-size: 50px;
-  }
-`;
-
-const ModeButton = styled(ButtonRound)`
-  color: black;
-  background-color: ${theme.colors.lightGray};
-  font-size: 40px;
-  width: 230px;
-  height: 230px;
-  @media (max-width: ${theme.breakpoints.lg}) {
-    font-size: 40px;
-    width: 230px;
-    height: 230px;
-  }
-  @media (max-width: ${theme.breakpoints.md}) {
-    font-size: 25px;
-    width: 130px;
-    height: 130px;
-  }
-  @media (max-width: ${theme.breakpoints.sm}) {
-    font-size: 15px;
-    width: 80px;
-    height: 80px;
-  }
+  background-color: ${theme.colors.opacityDarkGray};
+  padding: 3.5vmin 3.5vmin 1vmin 3.5vmin;
 `;
 
 const Lobby: React.FC = () => {
   return (
     <>
       <Topbar />
-      <TitleContainer>
-        <PlayText>PLAY</PlayText>
-        <SubText>O-MOK</SubText>
-      </TitleContainer>
-      <ButtonContainer>
-        <ModeButton>
-          Random
-          <br />
-          matching
-        </ModeButton>
-        <ModeButton>
-          make
-          <br />
-          new room
-        </ModeButton>
-        <ModeButton>Join</ModeButton>
-      </ButtonContainer>
+      <GridContainer>
+        <TitleBox>
+          <Title>Play</Title>
+          <SubTitle>O-MOK</SubTitle>
+        </TitleBox>
+        <RoomSpace>
+          <LobbyRoomList />
+        </RoomSpace>
+        <div>
+          <LobbyButtonWrapper />
+        </div>
+      </GridContainer>
     </>
   );
 };
