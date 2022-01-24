@@ -17,14 +17,13 @@ const InGameProfileImage = styled(ProfileImage)`
 `;
 
 const TextName = styled(TextRighteous)`
-  display: flex;
-  column-gap: 15px;
+  text-align: center;
   color: ${theme.colors.lightGray};
   font-size: 40px;
 `;
 
 const UserBall = styled(Ball)`
-  margin: 0px 180px 0px 0px;
+  margin-left: -60px;
 `;
 
 type Props = {
