@@ -16,6 +16,7 @@ const Container = styled.div`
 
 const Title = styled(TextRighteous)`
   font-size: 7vw;
+  color: white;
 `;
 
 const Box = styled.div`
@@ -32,6 +33,7 @@ const TitleBox = styled(Box)`
 const ContentBox = styled(Box)`
   row-gap: 20px;
   height: 20%;
+  color: white;
 `;
 
 const Main: React.FC = () => {
