@@ -34,6 +34,7 @@ const TextInput: React.FC<Props> = ({
       value={input}
       type={isPassword ? "password" : "text"}
       onKeyUp={onKeyUp}
+      spellCheck={false}
     />
   );
 };
