@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useRef } from "react";
 import useOutsideClick from "../../hooks/useOutsideClick";
 import Sidebar from "../atoms/Sidebar";
+import Portal from "../atoms/Portal";
 import TextRighteous from "../atoms/TextRighteous";
 import SidebarProfileBox from "../organisms/SidebarProfileBox";
 import SidebarRankBox from "../organisms/SidebarRankBox";
@@ -14,6 +15,7 @@ const Container = styled.div`
   height: 11vh;
   padding: 0px 0px 0px 20px;
   font-size: 30px;
+  color: white;
 `;
 
 const MenuButton = styled.img`
@@ -25,13 +27,13 @@ const Topbar: React.FC = () => {
   const { isClicked, setIsClicked } = useOutsideClick(TopbarRef);
   return (
     <Container>
-      <div ref={TopbarRef}>
+      <Portal>
         <Sidebar isActive={isClicked}>
           <SidebarProfileBox />
           <SidebarRankBox />
           <SidebarCommunityBox />
         </Sidebar>
-      </div>
+      </Portal>
       <MenuButton
         alt="collapsed_menu"
         src="img/collapsed_menu.svg"
