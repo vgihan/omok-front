@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import React, { Dispatch, KeyboardEventHandler, SetStateAction } from "react";
+import React from "react";
+import { TextInputProps } from "../../types/TextInputProps";
 
 const Container = styled.input`
   background-color: white;
@@ -9,21 +10,13 @@ const Container = styled.input`
   padding: 0px 0px 0px 1vw;
 `;
 
-type Props = {
-  setInput: Dispatch<SetStateAction<string>>;
-  input: string;
-  className?: string;
-  isPassword?: boolean;
-  onKeyUp?: KeyboardEventHandler;
-};
-
-const TextInput: React.FC<Props> = ({
+const TextInput: React.FC<TextInputProps> = ({
   input,
   setInput,
   className,
   isPassword,
   onKeyUp,
-}: Props) => {
+}: TextInputProps) => {
   const handleChange = (e: React.FormEvent<HTMLInputElement>) =>
     setInput(e.currentTarget.value);
 
