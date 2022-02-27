@@ -1,8 +1,13 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
+import { useSignin } from "../../api";
+import { setCookie } from "../../utils/cookie";
 import TextInput from "../atoms/TextInput";
 import TextRighteous from "../atoms/TextRighteous";
 import ButtonRound from "../atoms/ButtonRound";
+import LoadingCircle from "../atoms/LoadingCircle";
+import { ErrorResponse } from "../../types/signinResponse";
+import { useNavigate } from "react-router-dom";
 
 const InputLabel = styled(TextRighteous)`
   font-size: 30px;
@@ -49,9 +54,28 @@ const Container = styled.div`
 
 const LoginSpace: React.FC = () => {
   const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const { isLoading, refetch } = useSignin(
+    { id, password },
+    {
+      enabled: false,
+      onError: (err) => alert((err.response?.data as ErrorResponse).message),
+      onSuccess: ({ data }: any) => {
+        setCookie("token", data.token, { httpOnly: true });
+        navigate("/lobby");
+      },
+    }
+  );
+
+  const handleClickLogin = () => {
+    if (!id || !password) return alert("아이디 혹은 비밀번호를 입력해주세요.");
+    refetch();
+  };
+
   return (
     <Container>
+      {isLoading && <LoadingCircle></LoadingCircle>}
       <InputContainer>
         <Line>
           <InputLabel>ID</InputLabel>
@@ -60,15 +84,15 @@ const LoginSpace: React.FC = () => {
         <Line>
           <InputLabel>PW</InputLabel>
           <LoginInput
-            className="pw"
-            setInput={setPw}
-            input={pw}
+            className="password"
+            setInput={setPassword}
+            input={password}
             isPassword
           ></LoginInput>
         </Line>
       </InputContainer>
       <ButtonContainer>
-        <LoginButton>Login</LoginButton>
+        <LoginButton onClick={handleClickLogin}>Login</LoginButton>
       </ButtonContainer>
     </Container>
   );
