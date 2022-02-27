@@ -6,7 +6,7 @@ import TextInput from "../atoms/TextInput";
 import TextRighteous from "../atoms/TextRighteous";
 import ButtonRound from "../atoms/ButtonRound";
 import LoadingCircle from "../atoms/LoadingCircle";
-import { ErrorResponse } from "../../types/signinResponse";
+import { ErrorResponse } from "../../types/errorResponse";
 import { useNavigate } from "react-router-dom";
 
 const InputLabel = styled(TextRighteous)`
