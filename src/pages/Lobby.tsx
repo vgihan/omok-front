@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
 import TextRighteous from "~components/atoms/TextRighteous";
-import Topbar from "~components/molecules/Topbar";
 import LobbyButtonWrapper from "~components/organisms/LobbyButtonWrapper";
 import LobbyRoomList from "~components/organisms/LobbyRoomList";
+import Topbar from "~components/organisms/Topbar";
 import theme from "~styles/theme";
 
 const GridContainer = styled.div`

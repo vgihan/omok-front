@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 
-import SidebarCommunityBox from "../organisms/SidebarCommunityBox";
-import SidebarProfileBox from "../organisms/SidebarProfileBox";
-import SidebarRankBox from "../organisms/SidebarRankBox";
-
 import Portal from "~components/atoms/Portal";
 import Sidebar from "~components/atoms/Sidebar";
 import TextRighteous from "~components/atoms/TextRighteous";
+import SidebarCommunityBox from "~components/organisms/SidebarCommunityBox";
+import SidebarProfileBox from "~components/organisms/SidebarProfileBox";
+import SidebarRankBox from "~components/organisms/SidebarRankBox";
 import useOutsideClick from "~hooks/useOutsideClick";
 
 const Container = styled.div`
