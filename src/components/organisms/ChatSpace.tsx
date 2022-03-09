@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Chat } from "../../types/chat";
-import ChatInputBox from "../molecules/ChatInputBox";
-import ChatRecordBox from "../molecules/ChatRecordBox";
+import { Chat } from "~types/chat";
+import ChatInputBox from "~components/molecules/ChatInputBox";
+import ChatRecordBox from "~components/molecules/ChatRecordBox";
 
 const ChatSpace: React.FC = () => {
   const [chats, setChats] = useState<Chat[]>([]);

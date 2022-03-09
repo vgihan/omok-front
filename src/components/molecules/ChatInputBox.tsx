@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import React, { KeyboardEventHandler, useState } from "react";
-import theme from "../../styles/theme";
-import { Chat } from "../../types/chat";
-import ButtonRound from "../atoms/ButtonRound";
-import TextInput from "../atoms/TextInput";
+import theme from "~styles/theme";
+import { Chat } from "~types/chat";
+import ButtonRound from "~components/atoms/ButtonRound";
+import TextInput from "~components/atoms/TextInput";
 
 const ChatTextInput = styled(TextInput)`
   font-family: roboto;

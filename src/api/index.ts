@@ -1,7 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { QueryKey, useQuery, UseQueryOptions } from "react-query";
-import { ErrorResponse } from "../types/errorResponse";
-import { SigninResponse } from "../types/signinResponse";
+import { ErrorResponse } from "~types/errorResponse";
+import { SigninResponse } from "~types/signinResponse";
 
 export const useSignin = (
   data: { id: string; password: string },

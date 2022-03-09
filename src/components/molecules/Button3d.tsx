@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { PropsWithChildren } from "react";
-import theme from "../../styles/theme";
-import ButtonRound from "../atoms/ButtonRound";
+import theme from "~styles/theme";
+import ButtonRound from "~components/atoms/ButtonRound";
 
 const Container = styled(ButtonRound)`
   border-radius: 6%;
