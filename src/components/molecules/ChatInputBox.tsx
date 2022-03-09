@@ -1,9 +1,11 @@
-import styled from "@emotion/styled";
 import React, { KeyboardEventHandler, useState } from "react";
-import theme from "~styles/theme";
-import { Chat } from "~types/chat";
+
+import styled from "@emotion/styled";
+
 import ButtonRound from "~components/atoms/ButtonRound";
 import TextInput from "~components/atoms/TextInput";
+import theme from "~styles/theme";
+import { Chat } from "~types/chat";
 
 const ChatTextInput = styled(TextInput)`
   font-family: roboto;
@@ -58,12 +60,7 @@ const ChatInputBox: React.FC<Props> = ({ sendChat }: Props) => {
 
   return (
     <Container>
-      <ChatTextInput
-        className="chat"
-        input={chat}
-        setInput={setChat}
-        onKeyUp={handleKeyUp}
-      />
+      <ChatTextInput className="chat" input={chat} setInput={setChat} onKeyUp={handleKeyUp} />
       <SendButton onClick={sendChatAndClear}>전송</SendButton>
     </Container>
   );

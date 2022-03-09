@@ -1,13 +1,15 @@
-import styled from "@emotion/styled";
 import { useState } from "react";
+
+import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
+
 import { useSignin } from "~api/index";
-import { setCookie } from "~utils/cookie";
-import TextInput from "~components/atoms/TextInput";
-import TextRighteous from "~components/atoms/TextRighteous";
 import ButtonRound from "~components/atoms/ButtonRound";
 import LoadingCircle from "~components/atoms/LoadingCircle";
+import TextInput from "~components/atoms/TextInput";
+import TextRighteous from "~components/atoms/TextRighteous";
 import { ErrorResponse } from "~types/errorResponse";
-import { useNavigate } from "react-router-dom";
+import { setCookie } from "~utils/cookie";
 
 const InputLabel = styled(TextRighteous)`
   font-size: 30px;
@@ -65,7 +67,7 @@ const LoginSpace: React.FC = () => {
         setCookie("token", data.token, { httpOnly: true });
         navigate("/lobby");
       },
-    }
+    },
   );
 
   const handleClickLogin = () => {
@@ -83,12 +85,7 @@ const LoginSpace: React.FC = () => {
         </Line>
         <Line>
           <InputLabel>PW</InputLabel>
-          <LoginInput
-            className="password"
-            setInput={setPassword}
-            input={password}
-            isPassword
-          ></LoginInput>
+          <LoginInput className="password" setInput={setPassword} input={password} isPassword></LoginInput>
         </Line>
       </InputContainer>
       <ButtonContainer>

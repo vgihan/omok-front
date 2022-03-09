@@ -1,5 +1,7 @@
-import styled from "@emotion/styled";
 import { MouseEventHandler, useState } from "react";
+
+import styled from "@emotion/styled";
+
 import theme from "~styles/theme";
 
 const SvgSpace = styled.svg`
@@ -33,31 +35,12 @@ type Stone = {
   type: "black" | "white" | "none";
 };
 type Pos = `${PosRange},${PosRange}`;
-type PosRange =
-  | "1"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "6"
-  | "7"
-  | "8"
-  | "9"
-  | "10"
-  | "11"
-  | "12"
-  | "13"
-  | "14"
-  | "15";
+type PosRange = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15";
 
 const OmokField: React.FC = () => {
-  const coordinate: PosRange[] = Array.from({ length: 15 }).map(
-    (v, i) => `${i + 1}` as PosRange
-  );
+  const coordinate: PosRange[] = Array.from({ length: 15 }).map((v, i) => `${i + 1}` as PosRange);
   const init: Stones = coordinate.reduce((stones: Stones, x: PosRange) => {
-    coordinate.forEach(
-      (y: PosRange) => (stones[`${x},${y}`] = { type: "none" })
-    );
+    coordinate.forEach((y: PosRange) => (stones[`${x},${y}`] = { type: "none" }));
     return stones;
   }, {});
   const [stones, setStones] = useState<Stones>(init);

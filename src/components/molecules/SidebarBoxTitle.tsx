@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import theme from "~styles/theme";
+
 import TextRighteous from "~components/atoms/TextRighteous";
+import theme from "~styles/theme";
 
 const Container = styled.div`
   display: flex;

@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
-import { Room } from "~types/room";
+
 import LobbyRoomUnit from "./LobbyRoomUnit";
-import theme from "~styles/theme";
+
 import CenterBox from "~components/atoms/CenterBox";
+import theme from "~styles/theme";
+import { Room } from "~types/room";
 
 const Container = styled.div`
   display: grid;

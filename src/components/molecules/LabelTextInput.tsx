@@ -1,8 +1,10 @@
-import styled from "@emotion/styled";
 import { PropsWithChildren } from "react";
-import { TextInputProps } from "~types/TextInputProps";
+
+import styled from "@emotion/styled";
+
 import TextInput from "~components/atoms/TextInput";
 import TextRighteous from "~components/atoms/TextRighteous";
+import { TextInputProps } from "~types/TextInputProps";
 
 const Container = styled.div<{ fontSize: number }>`
   display: flex;
