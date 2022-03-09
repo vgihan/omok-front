@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { KeyboardEventHandler, useState } from "react";
 
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
@@ -70,6 +70,10 @@ const LoginSpace: React.FC = () => {
     },
   );
 
+  const handlePressEnter: KeyboardEventHandler = (e) => {
+    if (e.key !== "Enter") return;
+    refetch();
+  };
   const handleClickLogin = () => {
     if (!id || !password) return alert("아이디 혹은 비밀번호를 입력해주세요.");
     refetch();
@@ -81,15 +85,21 @@ const LoginSpace: React.FC = () => {
       <InputContainer>
         <Line>
           <InputLabel>ID</InputLabel>
-          <LoginInput className="id" onChange={(e) => setId(e.currentTarget.value)} value={id}></LoginInput>
+          <LoginInput
+            className="id"
+            value={id}
+            onChange={(e) => setId(e.currentTarget.value)}
+            onKeyUp={handlePressEnter}
+          ></LoginInput>
         </Line>
         <Line>
           <InputLabel>PW</InputLabel>
           <LoginInput
             type="password"
             className="password"
-            onChange={(e) => setPassword(e.currentTarget.value)}
             value={password}
+            onChange={(e) => setPassword(e.currentTarget.value)}
+            onKeyUp={handlePressEnter}
           ></LoginInput>
         </Line>
       </InputContainer>
