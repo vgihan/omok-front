@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import { Room } from "~types/room";
-import theme from "~styles/theme";
-import TextRoboto from "~components/atoms/TextRoboto";
-import TextRighteous from "~components/atoms/TextRighteous";
+
 import CenterBox from "~components/atoms/CenterBox";
+import TextRighteous from "~components/atoms/TextRighteous";
+import TextRoboto from "~components/atoms/TextRoboto";
+import theme from "~styles/theme";
+import { Room } from "~types/room";
 
 const Container = styled.div`
   display: inline-grid;
@@ -68,13 +69,7 @@ const NameBox = styled(CenterBox)`
   height: 100%;
 `;
 
-const LobbyRoomUnit: React.FC<Room> = ({
-  id,
-  name,
-  mode,
-  isLock,
-  state,
-}: Room) => {
+const LobbyRoomUnit: React.FC<Room> = ({ id, name, mode, isLock, state }: Room) => {
   return (
     <Container>
       <RoomInfoContainer isLock={isLock}>

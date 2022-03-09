@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import theme from "~styles/theme";
+
 import ChatElement from "~components/atoms/ChatElement";
+import theme from "~styles/theme";
 import { Chat } from "~types/chat";
 
 const Container = styled.div`
@@ -22,11 +23,7 @@ const Line = styled.div`
 `;
 
 const RecordContainer = styled.ul`
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 1) 20%
-  );
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 20%);
   -webkit-mask-size: 10%;
   display: flex;
   flex-direction: column-reverse;
@@ -72,7 +69,7 @@ const ChatRecordBox: React.FC<Props> = ({ chats }: Props) => {
             <TeamChat key={idx} sender={chat.sender}>
               {chat.content}
             </TeamChat>
-          )
+          ),
         )}
       </RecordContainer>
     </Container>

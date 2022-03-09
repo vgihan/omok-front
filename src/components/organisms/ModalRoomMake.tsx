@@ -1,14 +1,16 @@
-import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { Room } from "~types/room";
-import useAllCheck from "~hooks/useAllCheck";
-import theme from "~styles/theme";
+
+import styled from "@emotion/styled";
+
 import ButtonRound from "~components/atoms/ButtonRound";
 import CenterBox from "~components/atoms/CenterBox";
+import Checkbox from "~components/atoms/Checkbox";
 import TextInput from "~components/atoms/TextInput";
 import TextRighteous from "~components/atoms/TextRighteous";
 import TextRoboto from "~components/atoms/TextRoboto";
-import Checkbox from "~components/atoms/Checkbox";
+import useAllCheck from "~hooks/useAllCheck";
+import theme from "~styles/theme";
+import { Room } from "~types/room";
 
 const Container = styled.div`
   display: grid;
@@ -53,8 +55,7 @@ const SubTitle = styled(TextRighteous)`
 
 const ModeButton = styled(ButtonRound)<{ isSelected: boolean }>`
   color: ${theme.colors.darkGray};
-  background-color: ${({ isSelected }) =>
-    isSelected ? `${theme.colors.lightGray}` : `${theme.colors.charcoal}`};
+  background-color: ${({ isSelected }) => (isSelected ? `${theme.colors.lightGray}` : `${theme.colors.charcoal}`)};
   border-radius: 2vmin;
   width: 100%;
   height: 100%;
@@ -124,8 +125,7 @@ const ModalRoomMake: React.FC<Props> = ({ handleOffModal }) => {
   });
   const isAllCheck = useAllCheck([roomInfo.mode, roomInfo.name]);
 
-  const setAnyRoomInfo = (nextState: {}) =>
-    setRoomInfo((prevState) => ({ ...prevState, ...nextState }));
+  const setAnyRoomInfo = (nextState: {}) => setRoomInfo((prevState) => ({ ...prevState, ...nextState }));
 
   const handleChangeCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAnyRoomInfo({ isLock: e.target.checked });
@@ -138,18 +138,12 @@ const ModalRoomMake: React.FC<Props> = ({ handleOffModal }) => {
         <SubTitle>new room</SubTitle>
       </TitleBox>
       <CenterBox>
-        <ModeButton
-          onClick={() => setAnyRoomInfo({ mode: "Solo" })}
-          isSelected={roomInfo.mode === "Solo"}
-        >
+        <ModeButton onClick={() => setAnyRoomInfo({ mode: "Solo" })} isSelected={roomInfo.mode === "Solo"}>
           Solo
         </ModeButton>
       </CenterBox>
       <CenterBox>
-        <ModeButton
-          onClick={() => setAnyRoomInfo({ mode: "Double" })}
-          isSelected={roomInfo.mode === "Double"}
-        >
+        <ModeButton onClick={() => setAnyRoomInfo({ mode: "Double" })} isSelected={roomInfo.mode === "Double"}>
           Double
         </ModeButton>
       </CenterBox>
@@ -162,10 +156,7 @@ const ModalRoomMake: React.FC<Props> = ({ handleOffModal }) => {
                 <br />
                 name
               </TextInputLabel>
-              <TextInfoInput
-                input={roomInfo.name}
-                setInput={(v) => setAnyRoomInfo({ name: v })}
-              />
+              <TextInfoInput input={roomInfo.name} setInput={(v) => setAnyRoomInfo({ name: v })} />
             </TextInputLine>
             <TextInputLine>
               <TextInputLabel>pw</TextInputLabel>
@@ -178,10 +169,7 @@ const ModalRoomMake: React.FC<Props> = ({ handleOffModal }) => {
           </TextInfoWrapper>
           <CenterBox>
             <img src="img/lock.svg" width="35px" height="35px" alt="lock" />
-            <Checkbox
-              isChecked={roomInfo.isLock}
-              onChange={handleChangeCheckbox}
-            />
+            <Checkbox isChecked={roomInfo.isLock} onChange={handleChangeCheckbox} />
           </CenterBox>
         </InputInfoSpace>
       </InputInfoBox>

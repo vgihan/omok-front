@@ -1,5 +1,7 @@
-import styled from "@emotion/styled";
 import React from "react";
+
+import styled from "@emotion/styled";
+
 import { TextInputProps } from "~types/TextInputProps";
 
 const Container = styled.input`
@@ -10,15 +12,8 @@ const Container = styled.input`
   padding: 0px 0px 0px 1vw;
 `;
 
-const TextInput: React.FC<TextInputProps> = ({
-  input,
-  setInput,
-  className,
-  isPassword,
-  onKeyUp,
-}: TextInputProps) => {
-  const handleChange = (e: React.FormEvent<HTMLInputElement>) =>
-    setInput(e.currentTarget.value);
+const TextInput: React.FC<TextInputProps> = ({ input, setInput, className, isPassword, onKeyUp }: TextInputProps) => {
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => setInput(e.currentTarget.value);
 
   return (
     <Container

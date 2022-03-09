@@ -8,9 +8,7 @@ const useOutsideClick = () => {
   };
 
   useEffect(() => {
-    document
-      .getElementById("root")!
-      .addEventListener("mousedown", handleOutsideClick);
+    document.getElementById("root")!.addEventListener("mousedown", handleOutsideClick);
   }, []);
 
   return { isClicked, setIsClicked };

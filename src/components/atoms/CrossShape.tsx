@@ -31,11 +31,7 @@ const CrossShape: React.FC<Props> = ({ center }: Props) => {
     { x: center.x - 24.5, y: center.y + 0.5 },
   ];
 
-  return (
-    <Container
-      d={init + dist.map((pos) => `L${pos.x} ${pos.y}`) + "Z"}
-    ></Container>
-  );
+  return <Container d={init + dist.map((pos) => `L${pos.x} ${pos.y}`) + "Z"}></Container>;
 };
 
 export default CrossShape;

@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import theme from "~styles/theme";
+
+import Ball from "~components/atoms/Ball";
 import CenterBox from "~components/atoms/CenterBox";
 import ProfileImage from "~components/atoms/ProfileImage";
 import TextRighteous from "~components/atoms/TextRighteous";
-import Ball from "~components/atoms/Ball";
+import theme from "~styles/theme";
 
 const Container = styled(CenterBox)`
   flex-direction: column;
