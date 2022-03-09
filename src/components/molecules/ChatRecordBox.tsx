@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import theme from "../../styles/theme";
-import ChatElement from "../atoms/ChatElement";
-import { Chat } from "../../types/chat";
+import theme from "~styles/theme";
+import ChatElement from "~components/atoms/ChatElement";
+import { Chat } from "~types/chat";
 
 const Container = styled.div`
   display: flex;

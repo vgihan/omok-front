@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import { Room } from "../../types/room";
-import theme from "../../styles/theme";
-import TextRoboto from "../atoms/TextRoboto";
-import TextRighteous from "../atoms/TextRighteous";
-import CenterBox from "../atoms/CenterBox";
+import { Room } from "~types/room";
+import theme from "~styles/theme";
+import TextRoboto from "~components/atoms/TextRoboto";
+import TextRighteous from "~components/atoms/TextRighteous";
+import CenterBox from "~components/atoms/CenterBox";
 
 const Container = styled.div`
   display: inline-grid;

@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
-import Main from "./pages/Main";
-import Lobby from "./pages/Lobby";
-import Play from "./pages/Play";
-import Join from "./pages/Join";
+import Main from "~pages/Main";
+import Lobby from "~pages/Lobby";
+import Play from "~pages/Play";
+import Join from "~pages/Join";
 
 const Router: React.FC = () => {
   return (

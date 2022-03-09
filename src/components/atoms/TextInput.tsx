@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { TextInputProps } from "../../types/TextInputProps";
+import { TextInputProps } from "~types/TextInputProps";
 
 const Container = styled.input`
   background-color: white;
