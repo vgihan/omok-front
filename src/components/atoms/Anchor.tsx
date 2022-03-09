@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import theme from "../../styles/theme";
 
-const Anchor = styled.a`
+const Anchor = styled.span`
   font-family: righteous;
   color: ${theme.colors.gray};
 `;
