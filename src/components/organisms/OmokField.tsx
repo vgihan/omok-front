@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { MouseEventHandler, useState } from "react";
-import theme from "../../styles/theme";
+import theme from "~styles/theme";
 
 const SvgSpace = styled.svg`
   position: absolute;

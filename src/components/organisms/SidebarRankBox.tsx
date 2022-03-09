@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import theme from "../../styles/theme";
-import TextRighteous from "../atoms/TextRighteous";
-import SidebarBoxTitle from "../molecules/SidebarBoxTitle";
+import theme from "~styles/theme";
+import TextRighteous from "~components/atoms/TextRighteous";
+import SidebarBoxTitle from "~components/molecules/SidebarBoxTitle";
 
 const Container = styled.div`
   display: flex;

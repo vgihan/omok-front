@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import theme from "../../styles/theme";
-import ButtonRound from "../atoms/ButtonRound";
-import ProfileImage from "../atoms/ProfileImage";
-import TextRighteous from "../atoms/TextRighteous";
-import SidebarBoxTitle from "../molecules/SidebarBoxTitle";
+import theme from "~styles/theme";
+import ButtonRound from "~components/atoms/ButtonRound";
+import ProfileImage from "~components/atoms/ProfileImage";
+import TextRighteous from "~components/atoms/TextRighteous";
+import SidebarBoxTitle from "~components/molecules/SidebarBoxTitle";
 
 const Container = styled.div`
   display: flex;

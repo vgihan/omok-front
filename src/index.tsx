@@ -2,7 +2,7 @@ import { Global } from "@emotion/react";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import reset from "./styles/reset";
+import reset from "~styles/reset";
 
 ReactDOM.render(
   <React.StrictMode>

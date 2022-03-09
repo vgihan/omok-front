@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { Room } from "../../types/room";
-import useAllCheck from "../../hooks/useAllCheck";
-import theme from "../../styles/theme";
-import ButtonRound from "../atoms/ButtonRound";
-import CenterBox from "../atoms/CenterBox";
-import TextInput from "../atoms/TextInput";
-import TextRighteous from "../atoms/TextRighteous";
-import TextRoboto from "../atoms/TextRoboto";
-import Checkbox from "../atoms/Checkbox";
+import { Room } from "~types/room";
+import useAllCheck from "~hooks/useAllCheck";
+import theme from "~styles/theme";
+import ButtonRound from "~components/atoms/ButtonRound";
+import CenterBox from "~components/atoms/CenterBox";
+import TextInput from "~components/atoms/TextInput";
+import TextRighteous from "~components/atoms/TextRighteous";
+import TextRoboto from "~components/atoms/TextRoboto";
+import Checkbox from "~components/atoms/Checkbox";
 
 const Container = styled.div`
   display: grid;

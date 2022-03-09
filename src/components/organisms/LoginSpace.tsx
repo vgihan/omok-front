@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import { useSignin } from "../../api";
-import { setCookie } from "../../utils/cookie";
-import TextInput from "../atoms/TextInput";
-import TextRighteous from "../atoms/TextRighteous";
-import ButtonRound from "../atoms/ButtonRound";
-import LoadingCircle from "../atoms/LoadingCircle";
-import { ErrorResponse } from "../../types/errorResponse";
+import { useSignin } from "~api/index";
+import { setCookie } from "~utils/cookie";
+import TextInput from "~components/atoms/TextInput";
+import TextRighteous from "~components/atoms/TextRighteous";
+import ButtonRound from "~components/atoms/ButtonRound";
+import LoadingCircle from "~components/atoms/LoadingCircle";
+import { ErrorResponse } from "~types/errorResponse";
 import { useNavigate } from "react-router-dom";
 
 const InputLabel = styled(TextRighteous)`

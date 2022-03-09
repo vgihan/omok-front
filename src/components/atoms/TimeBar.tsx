@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useEffect } from "react";
-import theme from "../../styles/theme";
+import theme from "~styles/theme";
 
 const Container = styled.div`
   border: 2px solid ${theme.colors.lightGray};

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
 import theme from "../../styles/theme";
-import ButtonRound from "../atoms/ButtonRound";
-import LabelTextInput from "../molecules/LabelTextInput";
+import ButtonRound from "~components/atoms/ButtonRound";
+import LabelTextInput from "~components/molecules/LabelTextInput";
 
 const Container = styled.div`
   display: flex;

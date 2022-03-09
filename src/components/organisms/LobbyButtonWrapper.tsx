@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-import theme from "../../styles/theme";
-import ButtonRound from "../atoms/ButtonRound";
-import Modal from "../atoms/Modal";
-import Portal from "../atoms/Portal";
+import theme from "~styles/theme";
+import ButtonRound from "~components/atoms/ButtonRound";
+import Modal from "~components/atoms/Modal";
+import Portal from "~components/atoms/Portal";
 import ModalRoomMake from "./ModalRoomMake";
 
 const Container = styled.div`
