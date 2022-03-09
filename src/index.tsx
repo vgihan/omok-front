@@ -1,7 +1,10 @@
-import { Global } from "@emotion/react";
 import React from "react";
+
+import { Global } from "@emotion/react";
 import ReactDOM from "react-dom";
+
 import App from "./App";
+
 import reset from "~styles/reset";
 
 ReactDOM.render(
@@ -9,5 +12,5 @@ ReactDOM.render(
     <Global styles={reset} />
     <App />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );

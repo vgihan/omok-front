@@ -1,11 +1,13 @@
 import styled from "@emotion/styled";
-import useOutsideClick from "~hooks/useOutsideClick";
-import Sidebar from "~components/atoms/Sidebar";
-import Portal from "~components/atoms/Portal";
-import TextRighteous from "~components/atoms/TextRighteous";
+
+import SidebarCommunityBox from "../organisms/SidebarCommunityBox";
 import SidebarProfileBox from "../organisms/SidebarProfileBox";
 import SidebarRankBox from "../organisms/SidebarRankBox";
-import SidebarCommunityBox from "../organisms/SidebarCommunityBox";
+
+import Portal from "~components/atoms/Portal";
+import Sidebar from "~components/atoms/Sidebar";
+import TextRighteous from "~components/atoms/TextRighteous";
+import useOutsideClick from "~hooks/useOutsideClick";
 
 const Container = styled.div`
   display: flex;
@@ -32,11 +34,7 @@ const Topbar: React.FC = () => {
           <SidebarCommunityBox />
         </Sidebar>
       </Portal>
-      <MenuButton
-        alt="collapsed_menu"
-        src="img/collapsed_menu.svg"
-        onClick={() => setIsClicked(true)}
-      ></MenuButton>
+      <MenuButton alt="collapsed_menu" src="img/collapsed_menu.svg" onClick={() => setIsClicked(true)}></MenuButton>
       <TextRighteous>O-MOK</TextRighteous>
     </Container>
   );

@@ -1,5 +1,7 @@
-import styled from "@emotion/styled";
 import { PropsWithChildren } from "react";
+
+import styled from "@emotion/styled";
+
 import theme from "~styles/theme";
 
 const Container = styled.div<Props>`
@@ -36,10 +38,7 @@ type Props = {
   isActive: boolean;
 };
 
-const Sidebar: React.FC<PropsWithChildren<Props>> = ({
-  isActive,
-  children,
-}: PropsWithChildren<Props>) => {
+const Sidebar: React.FC<PropsWithChildren<Props>> = ({ isActive, children }: PropsWithChildren<Props>) => {
   return <Container isActive={isActive}>{children}</Container>;
 };
 

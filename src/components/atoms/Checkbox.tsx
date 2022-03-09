@@ -1,7 +1,9 @@
-import styled from "@emotion/styled";
 import { ChangeEventHandler } from "react";
-import theme from "~styles/theme";
+
+import styled from "@emotion/styled";
+
 import CenterBox from "~components/atoms/CenterBox";
+import theme from "~styles/theme";
 
 const Container = styled.label`
   margin: 0 1vw;

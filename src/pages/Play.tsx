@@ -1,12 +1,11 @@
 import styled from "@emotion/styled";
 
-import Topbar from "~components/molecules/Topbar";
-import InGameUserProfile from "~components/molecules/InGameUserProfile";
+import TimeBar from "~components/atoms/TimeBar";
 import Button3d from "~components/molecules/Button3d";
+import InGameUserProfile from "~components/molecules/InGameUserProfile";
+import Topbar from "~components/molecules/Topbar";
 import ChatSpace from "~components/organisms/ChatSpace";
 import OmokWrapper from "~components/organisms/OmokWrapper";
-import TimeBar from "~components/atoms/TimeBar";
-
 import theme from "~styles/theme";
 
 const GridContainer = styled.div`
