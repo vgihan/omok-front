@@ -60,7 +60,12 @@ const ChatInputBox: React.FC<Props> = ({ sendChat }: Props) => {
 
   return (
     <Container>
-      <ChatTextInput className="chat" input={chat} setInput={setChat} onKeyUp={handleKeyUp} />
+      <ChatTextInput
+        className="chat"
+        value={chat}
+        onChange={(e) => setChat(e.currentTarget.value)}
+        onKeyUp={handleKeyUp}
+      />
       <SendButton onClick={sendChatAndClear}>전송</SendButton>
     </Container>
   );

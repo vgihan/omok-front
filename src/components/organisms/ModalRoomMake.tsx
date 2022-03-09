@@ -156,14 +156,14 @@ const ModalRoomMake: React.FC<Props> = ({ handleOffModal }) => {
                 <br />
                 name
               </TextInputLabel>
-              <TextInfoInput input={roomInfo.name} setInput={(v) => setAnyRoomInfo({ name: v })} />
+              <TextInfoInput value={roomInfo.name} onChange={(e) => setAnyRoomInfo({ name: e.currentTarget.value })} />
             </TextInputLine>
             <TextInputLine>
               <TextInputLabel>pw</TextInputLabel>
               <TextInfoInput
-                input={roomInfo.pw as string}
-                setInput={(v) => setAnyRoomInfo({ pw: v, isLock: v && true })}
-                isPassword={true}
+                type="password"
+                value={roomInfo.pw as string}
+                onChange={(e) => setAnyRoomInfo({ pw: e.currentTarget.value, isLock: !!e.currentTarget.value && true })}
               />
             </TextInputLine>
           </TextInfoWrapper>

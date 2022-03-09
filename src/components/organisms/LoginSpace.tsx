@@ -81,11 +81,16 @@ const LoginSpace: React.FC = () => {
       <InputContainer>
         <Line>
           <InputLabel>ID</InputLabel>
-          <LoginInput className="id" setInput={setId} input={id}></LoginInput>
+          <LoginInput className="id" onChange={(e) => setId(e.currentTarget.value)} value={id}></LoginInput>
         </Line>
         <Line>
           <InputLabel>PW</InputLabel>
-          <LoginInput className="password" setInput={setPassword} input={password} isPassword></LoginInput>
+          <LoginInput
+            type="password"
+            className="password"
+            onChange={(e) => setPassword(e.currentTarget.value)}
+            value={password}
+          ></LoginInput>
         </Line>
       </InputContainer>
       <ButtonContainer>
