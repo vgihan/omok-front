@@ -1,12 +1,10 @@
 import styled from "@emotion/styled";
 
-import theme from "~styles/theme";
-
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${theme.colors.opacityDarkGray};
+  background-color: ${({ theme }) => theme.colors.opacityDarkGray};
   position: absolute;
   top: 0;
   bottom: 0;
@@ -15,7 +13,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  background-color: ${theme.colors.lightCharcoal};
+  background-color: ${({ theme }) => theme.colors.lightCharcoal};
   border-radius: 5vh;
   width: 600px;
   height: 70vh;

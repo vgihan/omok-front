@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 
-import theme from "~styles/theme";
-
 type Props = {
   color: "white" | "black";
 };
@@ -11,7 +9,7 @@ const Ball = styled.span`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: ${theme.colors.cottonWhite};
+  background-color: ${({ theme }) => theme.colors.cottonWhite};
   background: ${({ color }: Props) =>
     color === "white"
       ? "linear-gradient(to bottom right, white 45%, #555);"

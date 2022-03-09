@@ -9,7 +9,6 @@ import TextInput from "~components/atoms/TextInput";
 import TextRighteous from "~components/atoms/TextRighteous";
 import TextRoboto from "~components/atoms/TextRoboto";
 import useAllCheck from "~hooks/useAllCheck";
-import theme from "~styles/theme";
 import { Room } from "~types/room";
 
 const Container = styled.div`
@@ -28,7 +27,7 @@ const TitleBox = styled(CenterBox)`
   text-align: center;
   grid-column: 1 / 3;
   grid-row: 1 / 2;
-  color: ${theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.lightGray};
 `;
 
 const InputInfoBox = styled(CenterBox)`
@@ -54,14 +53,14 @@ const SubTitle = styled(TextRighteous)`
 `;
 
 const ModeButton = styled(ButtonRound)<{ isSelected: boolean }>`
-  color: ${theme.colors.darkGray};
-  background-color: ${({ isSelected }) => (isSelected ? `${theme.colors.lightGray}` : `${theme.colors.charcoal}`)};
+  color: ${({ theme }) => theme.colors.darkGray};
+  background-color: ${({ isSelected, theme }) => (isSelected ? theme.colors.lightGray : theme.colors.lightGray)};
   border-radius: 2vmin;
   width: 100%;
   height: 100%;
   font-size: 50px;
   :hover {
-    background-color: ${theme.colors.lightGray};
+    background-color: ${({ theme }) => theme.colors.lightGray};
   }
 `;
 
@@ -70,7 +69,7 @@ const InputInfoSpace = styled(CenterBox)`
   row-gap: 13%;
   width: 100%;
   height: 100%;
-  background-color: ${theme.colors.charcoal};
+  background-color: ${({ theme }) => theme.colors.charcoal};
   border-radius: 2vmin;
 `;
 
@@ -88,7 +87,7 @@ const TextInputLine = styled(TextRoboto)`
 `;
 
 const TextInfoInput = styled(TextInput)`
-  background-color: ${theme.colors.lightCharcoal};
+  background-color: ${({ theme }) => theme.colors.lightCharcoal};
   width: 40vmin;
   height: 5vh;
   border-radius: 0%;
@@ -100,8 +99,8 @@ const TextInputLabel = styled.span`
 `;
 
 const ModalButton = styled(ButtonRound)`
-  color: ${theme.colors.cottonWhite};
-  background-color: ${theme.colors.charcoal};
+  color: ${({ theme }) => theme.colors.cottonWhite};
+  background-color: ${({ theme }) => theme.colors.charcoal};
   border-radius: 2vmin;
   width: 100px;
   height: 50px;

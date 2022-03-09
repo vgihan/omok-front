@@ -4,7 +4,6 @@ import Ball from "~components/atoms/Ball";
 import CenterBox from "~components/atoms/CenterBox";
 import ProfileImage from "~components/atoms/ProfileImage";
 import TextRighteous from "~components/atoms/TextRighteous";
-import theme from "~styles/theme";
 
 const Container = styled(CenterBox)`
   flex-direction: column;
@@ -19,7 +18,7 @@ const InGameProfileImage = styled(ProfileImage)`
 
 const TextName = styled(TextRighteous)`
   text-align: center;
-  color: ${theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.lightGray};
   font-size: 40px;
 `;
 

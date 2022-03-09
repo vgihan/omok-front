@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import CenterBox from "~components/atoms/CenterBox";
 import TextRighteous from "~components/atoms/TextRighteous";
 import TextRoboto from "~components/atoms/TextRoboto";
-import theme from "~styles/theme";
 import { Room } from "~types/room";
 
 const Container = styled.div`
@@ -12,14 +11,14 @@ const Container = styled.div`
   grid-template-rows: 2fr 2fr;
   justify-content: center;
   border-radius: 1vmin;
-  background-color: ${theme.colors.opacityCottonWhite};
+  background-color: ${({ theme }) => theme.colors.opacityCottonWhite};
   width: 27vw;
   height: 15vh;
   padding: 1vh 1.5vw 1vh 1.5vw;
   box-sizing: border-box;
   cursor: pointer;
   :hover {
-    background-color: ${theme.colors.lightGray};
+    background-color: ${({ theme }) => theme.colors.lightGray};
   }
 `;
 
@@ -28,7 +27,7 @@ const RoomInfoContainer = styled.div<{ isLock: boolean }>`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
   border-radius: 1vmin;
-  background-color: ${theme.colors.charcoal};
+  background-color: ${({ theme }) => theme.colors.charcoal};
   background-repeat: no-repeat;
   background-position: 96%;
   background-size: 8%;
@@ -60,7 +59,7 @@ const IdBox = styled(CenterBox)`
   width: 17%;
   height: 100%;
   margin: 0 2vw 0 0;
-  background-color: ${theme.colors.opacityDarkGray};
+  background-color: ${({ theme }) => theme.colors.opacityDarkGray};
 `;
 
 const NameBox = styled(CenterBox)`

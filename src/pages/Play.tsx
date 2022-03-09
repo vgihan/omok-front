@@ -6,7 +6,6 @@ import InGameUserProfile from "~components/molecules/InGameUserProfile";
 import ChatSpace from "~components/organisms/ChatSpace";
 import OmokWrapper from "~components/organisms/OmokWrapper";
 import Topbar from "~components/organisms/Topbar";
-import theme from "~styles/theme";
 
 const GridContainer = styled.div`
   display: inline-grid;
@@ -28,7 +27,7 @@ const FieldContainer = styled.div`
   grid-column: 2 / 3;
   grid-row: 1 / 3;
   box-sizing: border-box;
-  background-color: ${theme.colors.lightGray};
+  background-color: ${({ theme }) => theme.colors.lightGray};
   border-radius: 3%;
 `;
 

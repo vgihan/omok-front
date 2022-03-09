@@ -3,13 +3,12 @@ import { PropsWithChildren } from "react";
 import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/ButtonRound";
-import theme from "~styles/theme";
 
 const Container = styled(ButtonRound)`
   border-radius: 6%;
   font-family: roboto;
   font-weight: bold;
-  color: ${theme.colors.gray};
+  color: ${({ theme }) => theme.colors.gray};
   background-color: black;
 `;
 
@@ -17,8 +16,8 @@ const Wrapper = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${theme.colors.opacityCottonWhite};
-  color: ${theme.colors.gray};
+  background-color: ${({ theme }) => theme.colors.opacityCottonWhite};
+  color: ${({ theme }) => theme.colors.gray};
   position: relative;
   border-radius: 6%;
   width: ${({ width }) => width}vmin;

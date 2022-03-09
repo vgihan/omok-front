@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/ButtonRound";
 import TextInput from "~components/atoms/TextInput";
-import theme from "~styles/theme";
 import { Chat } from "~types/chat";
 
 const ChatTextInput = styled(TextInput)`
@@ -14,7 +13,7 @@ const ChatTextInput = styled(TextInput)`
   border: none;
   font-size: 16px;
   background-color: transparent;
-  color: ${theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.lightGray};
   width: 80%;
 `;
 
@@ -22,7 +21,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${theme.colors.lightCharcoal};
+  background-color: ${({ theme }) => theme.colors.lightCharcoal};
   width: 100%;
   height: 12%;
   box-sizing: border-box;
@@ -32,10 +31,10 @@ const Container = styled.div`
 const SendButton = styled(ButtonRound)`
   font-family: roboto;
   font-size: 16px;
-  color: ${theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.lightGray};
   background-color: transparent;
   border-radius: 0;
-  border-left: 1px solid ${theme.colors.lightGray};
+  border-left: 1px solid ${({ theme }) => theme.colors.lightGray};
   width: 15%;
   height: 100%;
 `;

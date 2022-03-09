@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import ProfileImage from "~components/atoms/ProfileImage";
 import TextRighteous from "~components/atoms/TextRighteous";
 import SidebarBoxTitle from "~components/molecules/SidebarBoxTitle";
-import theme from "~styles/theme";
 
 const Container = styled.div`
   display: flex;
@@ -14,53 +13,53 @@ const Container = styled.div`
 
 const TitleContainer = styled(Container)`
   height: 60px;
-  @media (max-width: ${theme.breakpoints.lg}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     height: 60px;
   }
-  @media (max-width: ${theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     height: 40px;
   }
-  @media (max-width: ${theme.breakpoints.sm}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     height: 20px;
   }
 `;
 
 const ProfileImageContainer = styled(Container)`
   height: 120px;
-  @media (max-width: ${theme.breakpoints.lg}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     height: 120px;
   }
-  @media (max-width: ${theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     height: 100px;
   }
-  @media (max-width: ${theme.breakpoints.sm}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     height: 80px;
   }
 `;
 
 const NameContainer = styled(Container)`
   height: 30px;
-  @media (max-width: ${theme.breakpoints.lg}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     height: 30px;
   }
-  @media (max-width: ${theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     height: 20px;
   }
-  @media (max-width: ${theme.breakpoints.sm}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     height: 10px;
   }
 `;
 
 const MyProfileImage = styled(ProfileImage)`
-  @media (max-width: ${theme.breakpoints.lg}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     width: 100px;
     height: 100px;
   }
-  @media (max-width: ${theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     width: 80px;
     height: 80px;
   }
-  @media (max-width: ${theme.breakpoints.sm}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     width: 60px;
     height: 60px;
   }
@@ -79,7 +78,7 @@ const Name = styled(TextRighteous)`
 `;
 
 const TagNumber = styled(TextRighteous)`
-  color: ${theme.colors.lightGray};
+  color: ${({ theme }) => theme.colors.lightGray};
 `;
 
 const SidebarProfileBox: React.FC = () => {

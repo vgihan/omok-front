@@ -1,14 +1,13 @@
 import styled from "@emotion/styled";
 
 import ChatElement from "~components/atoms/ChatElement";
-import theme from "~styles/theme";
 import { Chat } from "~types/chat";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: ${theme.colors.darkGray};
+  background-color: ${({ theme }) => theme.colors.darkGray};
   box-sizing: border-box;
   opacity: 54;
   width: 100%;
@@ -17,7 +16,7 @@ const Container = styled.div`
 `;
 
 const Line = styled.div`
-  background-color: ${theme.colors.cottonWhite};
+  background-color: ${({ theme }) => theme.colors.cottonWhite};
   height: 1px;
   opacity: 50%;
 `;
@@ -35,17 +34,17 @@ const RecordContainer = styled.ul`
     width: 10px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: ${theme.colors.charcoal};
+    background-color: ${({ theme }) => theme.colors.charcoal};
     border-radius: 10px;
   }
 `;
 
 const AllChat = styled(ChatElement)`
-  color: ${theme.colors.gray};
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 const TeamChat = styled(ChatElement)`
-  color: ${theme.colors.aqua};
+  color: ${({ theme }) => theme.colors.aqua};
   :before {
     content: "[Team] ${({ sender }) => sender} : ";
   }

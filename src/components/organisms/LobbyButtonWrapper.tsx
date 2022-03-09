@@ -7,7 +7,6 @@ import ModalRoomMake from "./ModalRoomMake";
 import ButtonRound from "~components/atoms/ButtonRound";
 import Modal from "~components/atoms/Modal";
 import Portal from "~components/atoms/Portal";
-import theme from "~styles/theme";
 
 const Container = styled.div`
   display: flex;
@@ -18,19 +17,19 @@ const Container = styled.div`
 `;
 
 const ModeButton = styled(ButtonRound)`
-  background-color: ${theme.colors.opacityCottonWhite};
-  color: ${theme.colors.darkGray};
+  background-color: ${({ theme }) => theme.colors.opacityCottonWhite};
+  color: ${({ theme }) => theme.colors.darkGray};
   height: 35%;
   font-size: 7vmin;
   border-radius: 1vmin;
   :hover {
-    background-color: ${theme.colors.lightGray};
+    background-color: ${({ theme }) => theme.colors.lightGray};
   }
 `;
 
 const SearchBox = styled.input`
-  background-color: ${theme.colors.opacityCottonWhite};
-  color: ${theme.colors.darkGray};
+  background-color: ${({ theme }) => theme.colors.opacityCottonWhite};
+  color: ${({ theme }) => theme.colors.darkGray};
   height: 10%;
   font-size: 2vmin;
   border-radius: 1vmin;

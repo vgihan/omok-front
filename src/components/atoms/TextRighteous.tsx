@@ -1,9 +1,7 @@
 import styled from "@emotion/styled";
 
-import theme from "~styles/theme";
-
 const TextRighteous = styled.p`
-  font-family: ${theme.fonts.righteous};
+  font-family: ${({ theme }) => theme.fonts.righteous};
 `;
 
 export default TextRighteous;

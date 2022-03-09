@@ -4,7 +4,6 @@ import ButtonRound from "~components/atoms/ButtonRound";
 import ProfileImage from "~components/atoms/ProfileImage";
 import TextRighteous from "~components/atoms/TextRighteous";
 import SidebarBoxTitle from "~components/molecules/SidebarBoxTitle";
-import theme from "~styles/theme";
 
 const Container = styled.div`
   display: flex;
@@ -26,13 +25,13 @@ const Friend = styled.li`
   justify-content: space-between;
   align-items: center;
   line-height: 80px;
-  @media (max-width: ${theme.breakpoints.lg}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     line-height: 80px;
   }
-  @media (max-width: ${theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     line-height: 60px;
   }
-  @media (max-width: ${theme.breakpoints.sm}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     line-height: 40px;
   }
 `;
@@ -40,15 +39,15 @@ const Friend = styled.li`
 const FriendProfileImage = styled(ProfileImage)`
   width: 60px;
   height: 60px;
-  @media (max-width: ${theme.breakpoints.lg}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     width: 60px;
     height: 60px;
   }
-  @media (max-width: ${theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     width: 40px;
     height: 40px;
   }
-  @media (max-width: ${theme.breakpoints.sm}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     width: 20px;
     height: 20px;
   }
@@ -62,8 +61,8 @@ const Name = styled(TextRighteous)`
 const FightButton = styled(ButtonRound)`
   display: inline;
   font-size: 2vmin;
-  color: ${theme.colors.gold};
-  background-color: ${theme.colors.cottonWhite};
+  color: ${({ theme }) => theme.colors.gold};
+  background-color: ${({ theme }) => theme.colors.cottonWhite};
 `;
 
 const SidebarRankBox: React.FC = () => {

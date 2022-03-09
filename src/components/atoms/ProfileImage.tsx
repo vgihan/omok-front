@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
 
-import theme from "~styles/theme";
-
 const Container = styled.img`
   border-radius: 50%;
-  background-color: ${theme.colors.lightGray};
+  background-color: ${({ theme }) => theme.colors.lightGray};
   width: 100px;
   height: 100px;
 `;

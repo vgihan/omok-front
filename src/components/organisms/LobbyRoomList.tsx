@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import LobbyRoomUnit from "./LobbyRoomUnit";
 
 import CenterBox from "~components/atoms/CenterBox";
-import theme from "~styles/theme";
 import { Room } from "~types/room";
 
 const Container = styled.div`
@@ -29,16 +28,16 @@ const PageButton = styled.button`
 `;
 
 const PrevPageButton = styled(PageButton)`
-  border-right: 30px solid ${theme.colors.opacityCottonWhite};
+  border-right: 30px solid ${({ theme }) => theme.colors.opacityCottonWhite};
   :hover {
-    border-right: 30px solid ${theme.colors.lightGray};
+    border-right: 30px solid ${({ theme }) => theme.colors.lightGray};
   }
 `;
 
 const NextPageButton = styled(PageButton)`
-  border-left: 30px solid ${theme.colors.opacityCottonWhite};
+  border-left: 30px solid ${({ theme }) => theme.colors.opacityCottonWhite};
   :hover {
-    border-left: 30px solid ${theme.colors.lightGray};
+    border-left: 30px solid ${({ theme }) => theme.colors.lightGray};
   }
 `;
 

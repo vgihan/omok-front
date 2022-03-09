@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 
-import theme from "~styles/theme";
-
 const LoadingCircle = styled.div`
   position: absolute;
   left: 50%;
@@ -10,9 +8,9 @@ const LoadingCircle = styled.div`
   width: 100px;
   height: 100px;
   margin: -75px 0 0 -75px;
-  border: 16px solid ${theme.colors.lightGray};
+  border: 16px solid ${({ theme }) => theme.colors.lightGray};
   border-radius: 50%;
-  border-top: 16px solid ${theme.colors.gray};
+  border-top: 16px solid ${({ theme }) => theme.colors.gray};
   width: 70px;
   height: 70px;
   animation: spin 2s linear infinite;

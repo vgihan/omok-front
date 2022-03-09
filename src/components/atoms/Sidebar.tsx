@@ -2,13 +2,11 @@ import { PropsWithChildren } from "react";
 
 import styled from "@emotion/styled";
 
-import theme from "~styles/theme";
-
 const Container = styled.div<Props>`
   display: flex;
   flex-direction: column;
   row-gap: 50px;
-  background-color: ${theme.colors.cottonWhite};
+  background-color: ${({ theme }) => theme.colors.cottonWhite};
   border-radius: 3vmin;
   left: ${({ isActive }) => (isActive ? "0" : "-150%")};
   position: fixed;
@@ -20,15 +18,15 @@ const Container = styled.div<Props>`
   transition: all 0.5s;
   z-index: 10;
 
-  @media (max-width: ${theme.breakpoints.lg}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     width: 340px;
     padding: 40px;
   }
-  @media (max-width: ${theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     width: 200px;
     padding: 40px;
   }
-  @media (max-width: ${theme.breakpoints.sm}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     width: 130px;
     padding: 20px;
   }

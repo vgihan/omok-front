@@ -2,15 +2,13 @@ import { useState } from "react";
 
 import styled from "@emotion/styled";
 
-import theme from "../../styles/theme";
-
 import ButtonRound from "~components/atoms/ButtonRound";
 import LabelTextInput from "~components/molecules/LabelTextInput";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  color: ${theme.colors.cottonWhite};
+  color: ${({ theme }) => theme.colors.cottonWhite};
   row-gap: 3vh;
 `;
 const JoinInput = styled(LabelTextInput)`

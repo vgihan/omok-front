@@ -3,7 +3,6 @@ import { ChangeEventHandler } from "react";
 import styled from "@emotion/styled";
 
 import CenterBox from "~components/atoms/CenterBox";
-import theme from "~styles/theme";
 
 const Container = styled.label`
   margin: 0 1vw;
@@ -15,10 +14,10 @@ const InputCheck = styled.input`
 `;
 
 const FillBox = styled(CenterBox)`
-  background-color: ${theme.colors.lightCharcoal};
+  background-color: ${({ theme }) => theme.colors.lightCharcoal};
   width: 35px;
   height: 35px;
-  color: ${theme.colors.darkGray};
+  color: ${({ theme }) => theme.colors.darkGray};
   font-size: 35px;
 `;
 

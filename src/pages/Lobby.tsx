@@ -4,7 +4,6 @@ import TextRighteous from "~components/atoms/TextRighteous";
 import LobbyButtonWrapper from "~components/organisms/LobbyButtonWrapper";
 import LobbyRoomList from "~components/organisms/LobbyRoomList";
 import Topbar from "~components/organisms/Topbar";
-import theme from "~styles/theme";
 
 const GridContainer = styled.div`
   display: grid;
@@ -28,18 +27,18 @@ const TitleBox = styled.div`
 
 const Title = styled(TextRighteous)`
   font-size: 12vh;
-  color: ${theme.colors.gray};
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 const SubTitle = styled(TextRighteous)`
   font-size: 4vh;
-  color: ${theme.colors.gray};
+  color: ${({ theme }) => theme.colors.gray};
 `;
 
 const RoomSpace = styled.div`
   display: flex;
   justify-content: center;
-  background-color: ${theme.colors.opacityDarkGray};
+  background-color: ${({ theme }) => theme.colors.opacityDarkGray};
   padding: 3.5vmin 3.5vmin 1vmin 3.5vmin;
 `;
 

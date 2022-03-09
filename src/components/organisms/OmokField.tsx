@@ -2,8 +2,6 @@ import { MouseEventHandler, useState } from "react";
 
 import styled from "@emotion/styled";
 
-import theme from "~styles/theme";
-
 const SvgSpace = styled.svg`
   position: absolute;
   top: -5vmin;
@@ -15,7 +13,7 @@ const SvgSpace = styled.svg`
 
 const Block = styled.circle`
   fill: transparent;
-  ${({ type }) =>
+  ${({ type, theme }) =>
     type !== "none"
       ? ""
       : `:hover {

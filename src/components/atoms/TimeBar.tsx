@@ -2,10 +2,8 @@ import { useEffect } from "react";
 
 import styled from "@emotion/styled";
 
-import theme from "~styles/theme";
-
 const Container = styled.div`
-  border: 2px solid ${theme.colors.lightGray};
+  border: 2px solid ${({ theme }) => theme.colors.lightGray};
   width: 80vmin;
   height: 12px;
   box-sizing: border-box;
@@ -15,7 +13,7 @@ const Container = styled.div`
 const ProgressBox = styled.div<{ time: number }>`
   width: 100%;
   height: 100%;
-  background: ${theme.colors.lightGray};
+  background: ${({ theme }) => theme.colors.lightGray};
   animation: timeFlow ${({ time }) => time}s linear forwards;
   @keyframes timeFlow {
     from {
