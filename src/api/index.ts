@@ -3,13 +3,33 @@ import { QueryKey, useQuery, UseQueryOptions } from "react-query";
 
 import { ErrorResponse } from "~types/errorResponse";
 import { SigninResponse } from "~types/signinResponse";
+import { User } from "~types/user";
+import { cookieUtil } from "~utils/Utils";
 
-export const useSignin = (
+const getAuthorization = () => ({
+  Authorization: `Bearer ${cookieUtil.getCookie("token")}`,
+});
+
+export const useFetchSignin = (
   data: { id: string; password: string },
   options?: Omit<
-    UseQueryOptions<AxiosResponse<SigninResponse>, AxiosError<ErrorResponse>, QueryKey, "signin">,
+    UseQueryOptions<AxiosResponse<SigninResponse>, AxiosError<ErrorResponse>, AxiosResponse<SigninResponse>, QueryKey>,
     "queryKey"
   >,
 ) => {
-  return useQuery("signin", () => axios.post("http://localhost:5000/auth/signin", data), options);
+  return useQuery<AxiosResponse<SigninResponse>, AxiosError<ErrorResponse>>(
+    "signin",
+    () => axios.post("http://localhost:5000/auth/signin", data),
+    options,
+  );
+};
+
+export const useFetchUserInfo = (
+  options?: UseQueryOptions<AxiosResponse<User>, Error, AxiosResponse<User>, QueryKey>,
+) => {
+  return useQuery<AxiosResponse<User>, Error>(
+    "userInfo",
+    () => axios.get("http://localhost:5000/user", { headers: { ...getAuthorization() } }),
+    options,
+  );
 };
