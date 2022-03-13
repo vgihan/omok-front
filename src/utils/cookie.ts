@@ -1,12 +1,12 @@
 import { Cookies } from "react-cookie";
-import { CookieSetOptions } from "universal-cookie";
 
-const cookies = new Cookies();
+export default class Cookie {
+  constructor(private cookies: Cookies) {}
 
-export const setCookie = (name: string, value: string, options?: CookieSetOptions) => {
-  return cookies.set(name, value, options);
-};
-
-export const getCookie = (name: string) => {
-  return cookies.get(name);
-};
+  setCookie(key: string, value: string, option?: any) {
+    return this.cookies.set(key, value, { ...option });
+  }
+  getCookie(key: string) {
+    return this.cookies.get(key);
+  }
+}
