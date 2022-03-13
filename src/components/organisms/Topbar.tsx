@@ -1,11 +1,10 @@
 import styled from "@emotion/styled";
 
+import UserInfoBox from "./UserInfoBox";
+
 import Portal from "~components/atoms/Portal";
 import Sidebar from "~components/atoms/Sidebar";
 import TextRighteous from "~components/atoms/TextRighteous";
-import SidebarCommunityBox from "~components/organisms/SidebarCommunityBox";
-import SidebarProfileBox from "~components/organisms/SidebarProfileBox";
-import SidebarRankBox from "~components/organisms/SidebarRankBox";
 import useOutsideClick from "~hooks/useOutsideClick";
 
 const Container = styled.div`
@@ -28,9 +27,7 @@ const Topbar: React.FC = () => {
     <Container>
       <Portal>
         <Sidebar isActive={isClicked}>
-          <SidebarProfileBox />
-          <SidebarRankBox />
-          <SidebarCommunityBox />
+          <UserInfoBox />
         </Sidebar>
       </Portal>
       <MenuButton alt="collapsed_menu" src="img/collapsed_menu.svg" onClick={() => setIsClicked(true)}></MenuButton>

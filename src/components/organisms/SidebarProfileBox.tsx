@@ -77,23 +77,23 @@ const Name = styled(TextRighteous)`
   color: black;
 `;
 
-const TagNumber = styled(TextRighteous)`
-  color: ${({ theme }) => theme.colors.lightGray};
-`;
+interface Props {
+  id: string;
+  profile: string;
+}
 
-const SidebarProfileBox: React.FC = () => {
+const SidebarProfileBox: React.FC<Props> = ({ id, profile }: Props) => {
   return (
     <Container>
       <TitleContainer>
         <SidebarBoxTitle>Profile</SidebarBoxTitle>
       </TitleContainer>
       <ProfileImageContainer>
-        <MyProfileImage src="" className="my" />
+        <MyProfileImage src={profile} className="my" />
       </ProfileImageContainer>
       <NameContainer>
         <UserInfoBox>
-          <Name>name</Name>
-          <TagNumber>#1029</TagNumber>
+          <Name>{id}</Name>
         </UserInfoBox>
       </NameContainer>
     </Container>

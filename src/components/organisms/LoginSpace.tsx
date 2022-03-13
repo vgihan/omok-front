@@ -3,17 +3,23 @@ import { KeyboardEventHandler, useState } from "react";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 
-import { useSignin } from "~api/index";
+import { useFetchSignin } from "~api/index";
 import ButtonRound from "~components/atoms/ButtonRound";
-import LoadingCircle from "~components/atoms/LoadingCircle";
+import Spinner from "~components/atoms/Spinner";
 import TextInput from "~components/atoms/TextInput";
 import TextRighteous from "~components/atoms/TextRighteous";
 import { ErrorResponse } from "~types/errorResponse";
-import { setCookie } from "~utils/cookie";
+import { cookieUtil } from "~utils/Utils";
 
 const InputLabel = styled(TextRighteous)`
   font-size: 30px;
   height: 30px;
+`;
+
+const LoginWaitSpinner = styled(Spinner)`
+  position: absolute;
+  top: 45%;
+  left: 45%;
 `;
 
 const Line = styled.div`
@@ -58,13 +64,13 @@ const LoginSpace: React.FC = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { isLoading, refetch } = useSignin(
+  const { isLoading, refetch } = useFetchSignin(
     { id, password },
     {
       enabled: false,
       onError: (err) => alert((err.response?.data as ErrorResponse).message),
       onSuccess: ({ data }: any) => {
-        setCookie("token", data.token, { httpOnly: true });
+        cookieUtil.setCookie("token", data.token);
         navigate("/lobby");
       },
     },
@@ -81,7 +87,7 @@ const LoginSpace: React.FC = () => {
 
   return (
     <Container>
-      {isLoading && <LoadingCircle></LoadingCircle>}
+      {isLoading && <LoginWaitSpinner />}
       <InputContainer>
         <Line>
           <InputLabel>ID</InputLabel>

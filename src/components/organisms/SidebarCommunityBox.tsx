@@ -65,7 +65,7 @@ const FightButton = styled(ButtonRound)`
   background-color: ${({ theme }) => theme.colors.cottonWhite};
 `;
 
-const SidebarRankBox: React.FC = () => {
+const SidebarCommunityBox: React.FC = () => {
   const friends = [
     { img: "abc", name: "kingora", id: "1" },
     { img: "abc", name: "D_OH.2", id: "2" },
@@ -95,4 +95,4 @@ const SidebarRankBox: React.FC = () => {
   );
 };
 
-export default SidebarRankBox;
+export default SidebarCommunityBox;

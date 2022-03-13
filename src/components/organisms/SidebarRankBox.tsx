@@ -30,15 +30,20 @@ const Rating = styled(TextRighteous)`
   color: ${theme.colors.gold};
 `;
 
-const SidebarRankBox: React.FC = () => {
+interface Props {
+  rating: number;
+  tierRank: number;
+}
+
+const SidebarRankBox: React.FC<Props> = ({ rating, tierRank }: Props) => {
   return (
     <Container>
       <TitleContainer>
         <SidebarBoxTitle>Rank</SidebarBoxTitle>
       </TitleContainer>
       <RankContainer>
-        <Rank>9th</Rank>
-        <Rating>1194</Rating>
+        <Rank>{tierRank}th</Rank>
+        <Rating>{rating}</Rating>
       </RankContainer>
     </Container>
   );
