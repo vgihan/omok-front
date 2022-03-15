@@ -31,7 +31,6 @@ const Line = styled.div`
 `;
 
 const LoginInput = styled(TextInput)`
-  font-size: 30px;
   width: 275px;
   height: 100%;
 `;
