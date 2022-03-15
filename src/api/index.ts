@@ -24,6 +24,20 @@ export const useFetchSignin = (
   );
 };
 
+export const useFetchSignup = (
+  data: { id: string; password: string },
+  options?: Omit<
+    UseQueryOptions<AxiosResponse<SigninResponse>, AxiosError<ErrorResponse>, AxiosResponse<SigninResponse>, QueryKey>,
+    "queryKey"
+  >,
+) => {
+  return useQuery<AxiosResponse<SigninResponse>, AxiosError<ErrorResponse>>(
+    "signup",
+    () => axios.post("/auth/signup", data),
+    options,
+  );
+};
+
 export const useFetchUserInfo = (
   options?: UseQueryOptions<AxiosResponse<User>, Error, AxiosResponse<User>, QueryKey>,
 ) => {
