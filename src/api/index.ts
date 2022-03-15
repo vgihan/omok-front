@@ -1,7 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { QueryKey, useQuery, UseQueryOptions } from "react-query";
 
-import { AUTH_SIGN_IN, USER_URI } from "src/constants/uri";
 import { ErrorResponse } from "~types/errorResponse";
 import { SigninResponse } from "~types/signinResponse";
 import { User } from "~types/user";
@@ -20,7 +19,7 @@ export const useFetchSignin = (
 ) => {
   return useQuery<AxiosResponse<SigninResponse>, AxiosError<ErrorResponse>>(
     "signin",
-    () => axios.post(AUTH_SIGN_IN, data),
+    () => axios.post("/auth/signin", data),
     options,
   );
 };
@@ -30,7 +29,7 @@ export const useFetchUserInfo = (
 ) => {
   return useQuery<AxiosResponse<User>, Error>(
     "userInfo",
-    () => axios.get(USER_URI, { headers: { ...getAuthorization() } }),
+    () => axios.get("/user", { headers: { ...getAuthorization() } }),
     options,
   );
 };
