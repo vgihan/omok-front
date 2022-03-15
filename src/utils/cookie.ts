@@ -9,4 +9,7 @@ export default class Cookie {
   getCookie(key: string) {
     return this.cookies.get(key);
   }
+  checkLogin() {
+    return !!this.getCookie("token");
+  }
 }

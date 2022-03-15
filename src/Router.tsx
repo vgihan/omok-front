@@ -1,23 +1,28 @@
-import React from "react";
+import React, { ReactElement } from "react";
 
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 
 import Join from "~pages/Join";
 import Lobby from "~pages/Lobby";
 import Main from "~pages/Main";
 import Play from "~pages/Play";
+import { cookieUtil } from "~utils/Utils";
 
 const Router: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/lobby" element={<Lobby />} />
-        <Route path="/play" element={<Play />} />
         <Route path="/join" element={<Join />} />
+        <Route path="/lobby" element={<PrivateRouter element={<Lobby />} />} />
+        <Route path="/play" element={<PrivateRouter element={<Play />} />} />
       </Routes>
     </BrowserRouter>
   );
+};
+
+const PrivateRouter: React.FC<{ element: ReactElement }> = ({ element }: { element: ReactElement }) => {
+  return cookieUtil.checkLogin() ? element : <Navigate replace to="/" />;
 };
 
 export default Router;
