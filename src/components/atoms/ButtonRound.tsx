@@ -4,7 +4,7 @@ const ButtonRound = styled.button`
   font-family: ${({ theme }) => theme.fonts.righteous};
   border: none;
   border-radius: 2%;
-  color: white;
+  color: ${({ disabled, theme }) => (disabled ? theme.colors.gray : theme.colors.cottonWhite)};
   cursor: pointer;
 `;
 
