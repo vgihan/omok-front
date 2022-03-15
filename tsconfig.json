@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["@emotion/react/types/css-prop"],
+    "types": ["@emotion/react/types/css-prop", "@types/node"],
+    "typeRoots": ["./node_module/@types", "types"],
     "baseUrl": ".",
     "paths": {
       "~api/*": ["src/api/*"],
