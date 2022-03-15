@@ -7,7 +7,8 @@ const Container = styled.input`
   border-radius: 10px;
   border: none;
   outline: none;
-  padding: 0px 0px 0px 1vw;
+  font-weight: bold;
+  padding: 0px 0px 0px 2vw;
 `;
 
 const TextInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
