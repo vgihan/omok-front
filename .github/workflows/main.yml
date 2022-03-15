@@ -8,8 +8,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-18.04
-    timeout-minutes: 30
+    runs-on: ubuntu-20.04
 
     steps:
       - name: executing remote ssh commands using password
@@ -21,8 +20,8 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd omok-front
-            git fetch origin main
             git reset --hard
+            git fetch origin main
             git rebase origin/main
-            yarn install
+            yarn
             yarn run build
