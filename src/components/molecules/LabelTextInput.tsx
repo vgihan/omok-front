@@ -4,25 +4,22 @@ import styled from "@emotion/styled";
 
 import TextInput from "~components/atoms/TextInput";
 import TextRighteous from "~components/atoms/TextRighteous";
-import { TextInputProps } from "~types/TextInputProps";
 
-const Container = styled.div<{ fontSize: number }>`
+const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   column-gap: 3vw;
-  font-size: ${({ fontSize }) => `${fontSize}px`};
 `;
 
-interface Props extends TextInputProps {
-  fontSize: number;
-}
-
-const LabelTextInput: React.FC<Props> = (props: PropsWithChildren<Props>) => {
+const LabelTextInput: React.FC<PropsWithChildren<React.InputHTMLAttributes<HTMLInputElement>>> = ({
+  children,
+  ...rest
+}: PropsWithChildren<React.InputHTMLAttributes<HTMLInputElement>>) => {
   return (
-    <Container fontSize={props.fontSize}>
-      <TextRighteous>{props.children}</TextRighteous>
-      <TextInput {...props} />
+    <Container className="label-text">
+      <TextRighteous>{children}</TextRighteous>
+      <TextInput {...rest} />
     </Container>
   );
 };

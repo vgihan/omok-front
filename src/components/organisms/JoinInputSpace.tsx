@@ -22,19 +22,19 @@ const JoinButton = styled(ButtonRound)`
 `;
 
 const JoinInputSpace: React.FC = () => {
-  const [id, setId] = useState<string>("");
-  const [pw, setPw] = useState<string>("");
-  const [name, setName] = useState<string>("");
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
+  const [checkedPw, setCheckedPw] = useState("");
   return (
     <Container>
-      <JoinInput input={id} setInput={setId} fontSize={40}>
+      <JoinInput value={id} onChange={(e) => setId(e.currentTarget.value)}>
         ID
       </JoinInput>
-      <JoinInput input={pw} setInput={setPw} fontSize={40}>
+      <JoinInput type="password" value={pw} onChange={(e) => setPw(e.currentTarget.value)}>
         PW
       </JoinInput>
-      <JoinInput input={name} setInput={setName} fontSize={40}>
-        NAME
+      <JoinInput type="password" value={checkedPw} onChange={(e) => setCheckedPw(e.currentTarget.value)}>
+        Check PW
       </JoinInput>
       <JoinButton>Join</JoinButton>
     </Container>
