@@ -1,6 +1,7 @@
 import { Cookies } from "react-cookie";
 
 export default class Cookie {
+  // eslint-disable-next-line no-unused-vars
   constructor(private cookies: Cookies) {}
 
   setCookie(key: string, value: string, option?: any) {
