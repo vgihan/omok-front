@@ -3,10 +3,11 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 
-import { useFetchSignup } from "~api/index";
 import ButtonRound from "~components/atoms/ButtonRound";
 import TextRoboto from "~components/atoms/TextRoboto";
 import LabelTextInput from "~components/molecules/LabelTextInput";
+import { useFetchSignup } from "~queries/index";
+import { ErrorResponse } from "~types/response/ErrorResponse";
 
 const Container = styled.div`
   display: flex;
@@ -36,22 +37,18 @@ const JoinInputSpace: React.FC = () => {
 
   const navigate = useNavigate();
 
-  const { refetch } = useFetchSignup(
-    { id, password },
-    {
-      enabled: false,
-      onSuccess: () => {
-        alert("로그인에 성공했습니다 ! 새로 로그인 해주세요 ^_^");
-        navigate("/");
-      },
-      onError: (err) => {
-        alert(err.response?.data.message);
-      },
+  const { mutate } = useFetchSignup({
+    onSuccess: () => {
+      navigate("/");
+      alert("회원가입에 성공했습니다 ! 새로 로그인 해주세요 ^_^");
     },
-  );
+    onError: (err) => {
+      alert((err as ErrorResponse).message);
+    },
+  });
 
   const handleClickJoinBtn = () => {
-    refetch();
+    mutate({ id, password });
   };
 
   return (
