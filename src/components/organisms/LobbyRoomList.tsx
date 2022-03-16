@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import LobbyRoomUnit from "./LobbyRoomUnit";
 
 import CenterBox from "~components/atoms/CenterBox";
-import { Room } from "~types/room";
+import { Room } from "~types/model/Room";
 
 const Container = styled.div`
   display: grid;

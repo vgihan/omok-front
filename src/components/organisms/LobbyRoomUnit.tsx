@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import CenterBox from "~components/atoms/CenterBox";
 import TextRighteous from "~components/atoms/TextRighteous";
 import TextRoboto from "~components/atoms/TextRoboto";
-import { Room } from "~types/room";
+import { Room } from "~types/model/Room";
 
 const Container = styled.div`
   display: inline-grid;

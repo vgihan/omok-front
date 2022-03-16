@@ -9,7 +9,7 @@ import TextInput from "~components/atoms/TextInput";
 import TextRighteous from "~components/atoms/TextRighteous";
 import TextRoboto from "~components/atoms/TextRoboto";
 import useAllCheck from "~hooks/useAllCheck";
-import { Room } from "~types/room";
+import { Room } from "~types/model/Room";
 
 const Container = styled.div`
   display: grid;

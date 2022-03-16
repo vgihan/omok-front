@@ -3,12 +3,11 @@ import { KeyboardEventHandler, useState } from "react";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 
-import { useFetchSignin } from "~api/index";
 import ButtonRound from "~components/atoms/ButtonRound";
 import Spinner from "~components/atoms/Spinner";
 import TextInput from "~components/atoms/TextInput";
 import TextRighteous from "~components/atoms/TextRighteous";
-import { ErrorResponse } from "~types/errorResponse";
+import { useFetchSignin } from "~queries/index";
 import { cookieUtil } from "~utils/Utils";
 
 const InputLabel = styled(TextRighteous)`
@@ -67,9 +66,9 @@ const LoginSpace: React.FC = () => {
     { id, password },
     {
       enabled: false,
-      onError: (err) => alert((err.response?.data as ErrorResponse).message),
-      onSuccess: ({ data }: any) => {
-        cookieUtil.setCookie("token", data.token);
+      onError: (err) => alert(err.message),
+      onSuccess: ({ token }) => {
+        cookieUtil.setCookie("token", token);
         navigate("/lobby");
       },
     },

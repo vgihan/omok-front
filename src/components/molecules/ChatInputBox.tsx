@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/ButtonRound";
 import TextInput from "~components/atoms/TextInput";
-import { Chat } from "~types/chat";
+import { Chat } from "~types/model/Chat";
 
 const ChatTextInput = styled(TextInput)`
   font-family: roboto;
