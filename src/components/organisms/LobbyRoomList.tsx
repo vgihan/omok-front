@@ -1,21 +1,38 @@
+import { useState } from "react";
+
 import styled from "@emotion/styled";
+import { useNavigate } from "react-router-dom";
 
 import LobbyRoomUnit from "./LobbyRoomUnit";
 
 import CenterBox from "~components/atoms/CenterBox";
-import { Room } from "~types/model/Room";
+import Spinner from "~components/atoms/Spinner";
+import { useFetchRooms } from "~queries/index";
+import { ErrorResponse } from "~types/response/ErrorResponse";
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 27vw 27vw;
-  grid-template-rows: 15vh 15vh 15vh 10vh;
+  grid-template-rows: 45vh 10vh;
   grid-gap: 1vmin 1vmin;
+  width: 100%;
+`;
+
+const RoomUnitContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 1vmin 1vmin;
+  box-sizing: border-box;
+  align-items: center;
 `;
 
 const ButtonContainer = styled(CenterBox)`
-  grid-column: 1/3;
   column-gap: 1vmin;
   width: 100%;
+`;
+
+const ButtonWrapper = styled(CenterBox)`
+  width: 30px;
 `;
 
 const PageButton = styled.button`
@@ -42,58 +59,34 @@ const NextPageButton = styled(PageButton)`
 `;
 
 const LobbyRoomList: React.FC = () => {
-  const rooms: Room[] = [
-    {
-      id: "01",
-      isLock: true,
-      mode: "1 vs 1",
-      name: "Room Name",
-      state: "WAITING",
+  const [curPage, setCurPage] = useState(1);
+  const navigate = useNavigate();
+
+  const { data: rooms } = useFetchRooms(curPage, {
+    onError: (error: ErrorResponse) => {
+      if (error.statusCode === 401) {
+        alert("로그인 유효기간이 지났습니다. 다시 로그인 해주세요.");
+        navigate("/");
+      }
     },
-    {
-      id: "02",
-      isLock: true,
-      mode: "1 vs 1",
-      name: "Room Name",
-      state: "WAITING",
-    },
-    {
-      id: "03",
-      isLock: true,
-      mode: "1 vs 1",
-      name: "Room Name",
-      state: "WAITING",
-    },
-    {
-      id: "04",
-      isLock: true,
-      mode: "1 vs 1",
-      name: "Room Name",
-      state: "WAITING",
-    },
-    {
-      id: "05",
-      isLock: true,
-      mode: "1 vs 1",
-      name: "Room Name",
-      state: "WAITING",
-    },
-    {
-      id: "06",
-      isLock: true,
-      mode: "1 vs 1",
-      name: "Room Name",
-      state: "WAITING",
-    },
-  ];
+  });
+
+  if (!rooms) return <Spinner />;
+
   return (
     <Container>
-      {rooms.map((room) => (
-        <LobbyRoomUnit {...room} key={room.id} />
-      ))}
+      <RoomUnitContainer>
+        {rooms.map((room) => (
+          <LobbyRoomUnit {...room} key={room.id} />
+        ))}
+      </RoomUnitContainer>
       <ButtonContainer>
-        <PrevPageButton />
-        <NextPageButton />
+        <ButtonWrapper>
+          {curPage <= 1 ? "" : <PrevPageButton onClick={() => setCurPage((prevPage) => Math.max(1, prevPage - 1))} />}
+        </ButtonWrapper>
+        <ButtonWrapper>
+          {rooms.length < 6 ? "" : <NextPageButton onClick={() => setCurPage((prevPage) => prevPage + 1)} />}
+        </ButtonWrapper>
       </ButtonContainer>
     </Container>
   );
