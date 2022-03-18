@@ -1,8 +1,11 @@
+import { RoomMode, RoomState } from "./RoomElement";
+
 export type Room = {
   id: string;
   name: string;
-  pw?: string;
-  mode: string;
+  password?: string;
+  mode: RoomMode;
   isLock: boolean;
-  state: "WAITING" | "FULL" | "PLAYING";
+  state: RoomState;
+  countPlayer: number;
 };
