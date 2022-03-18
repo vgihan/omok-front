@@ -68,7 +68,7 @@ const LoginSpace: React.FC = () => {
       enabled: false,
       onError: (err) => alert(err.message),
       onSuccess: ({ token }) => {
-        cookieUtil.setCookie("token", token);
+        cookieUtil.set("token", token);
         navigate("/lobby");
       },
     },

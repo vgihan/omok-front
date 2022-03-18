@@ -6,7 +6,7 @@ export default class Header {
 
   getAuthorization() {
     return {
-      Authorization: `Bearer ${this.cookieUtil.getCookie("token")}`,
+      Authorization: `Bearer ${this.cookieUtil.get("token")}`,
     };
   }
 }
