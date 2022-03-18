@@ -2,11 +2,10 @@ import { useState } from "react";
 
 import styled from "@emotion/styled";
 
-import ModalRoomMake from "./ModalRoomMake";
-
 import ButtonRound from "~components/atoms/ButtonRound";
 import Modal from "~components/atoms/Modal";
 import Portal from "~components/atoms/Portal";
+import ModalRoomMake from "~components/organisms/ModalRoomMake";
 
 const Container = styled.div`
   display: flex;
