@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content: center;
   border-radius: 1vmin;
   background-color: ${({ theme }) => theme.colors.opacityCottonWhite};
-  width: 27vw;
+  width: 100;
   height: 15vh;
   padding: 1vh 1.5vw 1vh 1.5vw;
   box-sizing: border-box;
