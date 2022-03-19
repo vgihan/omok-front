@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/button/ButtonRound";
-import ButtonWrapper from "~components/atoms/button/ButtonWrapper";
 import CenterBox from "~components/atoms/flexbox/CenterBox";
 import TextRighteous from "~components/atoms/text/TextRighteous";
 import SquareTextInput from "~components/atoms/textInput/SquareTextInput";
@@ -88,7 +87,7 @@ const ModalButton = styled(ButtonRound)`
   }
 `;
 
-const ModalOff = styled(ButtonWrapper)``;
+const ModalOff = styled.div``;
 
 type Props = {
   offModal: () => void;
@@ -151,12 +150,12 @@ const ModalRoomMake: React.FC<Props> = ({ offModal }) => {
         <LockCheckbox isChecked={roomInfo.isLock} onClick={handleChangeLockCheckbox} />
       </InputInfoBox>
       <SubmitButtonBox>
-        <ModalOff offModal={offModal}>
+        <ModalOff onClick={offModal}>
           <ModalButton onClick={() => createRoom(roomInfo)} disabled={!isAllCheck}>
             OK
           </ModalButton>
         </ModalOff>
-        <ModalOff offModal={offModal}>
+        <ModalOff onClick={offModal}>
           <ModalButton>NO</ModalButton>
         </ModalOff>
       </SubmitButtonBox>
