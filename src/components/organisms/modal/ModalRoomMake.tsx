@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/button/ButtonRound";
+import ButtonWrapper from "~components/atoms/button/ButtonWrapper";
 import CenterBox from "~components/atoms/flexbox/CenterBox";
-import ModalOff from "~components/atoms/modal/ModalOffButton";
-import ModalTextInput from "~components/atoms/modal/ModalTextInput";
 import TextRighteous from "~components/atoms/text/TextRighteous";
+import SquareTextInput from "~components/atoms/textInput/SquareTextInput";
 import LockCheckbox from "~components/molecules/LockCheckbox";
 import useAllCheck from "~hooks/useAllCheck";
 import { useMutateRoom } from "~queries/index";
@@ -88,6 +88,8 @@ const ModalButton = styled(ButtonRound)`
   }
 `;
 
+const ModalOff = styled(ButtonWrapper)``;
+
 type Props = {
   offModal: () => void;
 };
@@ -133,19 +135,19 @@ const ModalRoomMake: React.FC<Props> = ({ offModal }) => {
         </ModeButton>
       </CenterBox>
       <InputInfoBox>
-        <ModalTextInput value={roomInfo.name} onChange={handleChangeName}>
+        <SquareTextInput value={roomInfo.name} onChange={handleChangeName}>
           Room
           <br />
           name
-        </ModalTextInput>
-        <ModalTextInput
+        </SquareTextInput>
+        <SquareTextInput
           type="password"
           value={roomInfo.password}
           onChange={handleChangePassword}
           disabled={!roomInfo.isLock}
         >
           pw
-        </ModalTextInput>
+        </SquareTextInput>
         <LockCheckbox isChecked={roomInfo.isLock} onClick={handleChangeLockCheckbox} />
       </InputInfoBox>
       <SubmitButtonBox>
