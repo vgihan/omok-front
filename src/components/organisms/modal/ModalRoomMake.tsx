@@ -73,6 +73,10 @@ const InputInfoBox = styled(CenterBox)`
   height: 100%;
 `;
 
+const RoomInfoTextInput = styled(SquareTextInput)`
+  width: 75%;
+`;
+
 const ModalButton = styled(ButtonRound)`
   color: ${({ theme }) => theme.colors.cottonWhite};
   background-color: ${({ theme }) => theme.colors.charcoal};
@@ -106,13 +110,13 @@ const ModalRoomMake: React.FC<Props> = ({ offModal }) => {
   const handleClickDoubleButton = () => setRoomInfo((prevState) => ({ ...prevState, mode: RoomMode.DUO }));
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRoomInfo((prevState) => ({ ...prevState, name: e.currentTarget.value }));
+    setRoomInfo({ ...roomInfo, name: e.currentTarget.value });
   };
   const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRoomInfo((prevState) => ({ ...prevState, password: e.currentTarget.value }));
+    setRoomInfo({ ...roomInfo, password: e.currentTarget.value });
   };
   const handleChangeLockCheckbox = () => {
-    setRoomInfo((prevState) => ({ ...prevState, isLock: !prevState.isLock }));
+    setRoomInfo({ ...roomInfo, isLock: !roomInfo.isLock });
   };
 
   const { mutate: createRoom } = useMutateRoom();
@@ -134,19 +138,19 @@ const ModalRoomMake: React.FC<Props> = ({ offModal }) => {
         </ModeButton>
       </CenterBox>
       <InputInfoBox>
-        <SquareTextInput value={roomInfo.name} onChange={handleChangeName}>
+        <RoomInfoTextInput value={roomInfo.name} onChange={handleChangeName}>
           Room
           <br />
           name
-        </SquareTextInput>
-        <SquareTextInput
+        </RoomInfoTextInput>
+        <RoomInfoTextInput
           type="password"
           value={roomInfo.password}
           onChange={handleChangePassword}
           disabled={!roomInfo.isLock}
         >
           pw
-        </SquareTextInput>
+        </RoomInfoTextInput>
         <LockCheckbox isChecked={roomInfo.isLock} onClick={handleChangeLockCheckbox} />
       </InputInfoBox>
       <SubmitButtonBox>
