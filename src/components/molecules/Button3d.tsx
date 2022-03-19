@@ -3,6 +3,7 @@ import { PropsWithChildren } from "react";
 import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/button/ButtonRound";
+import CenterBox from "~components/atoms/flexbox/CenterBox";
 
 const Container = styled(ButtonRound)`
   border-radius: 6%;
@@ -12,10 +13,7 @@ const Container = styled(ButtonRound)`
   background-color: black;
 `;
 
-const Wrapper = styled.div<Props>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const Wrapper = styled(CenterBox)<Props>`
   background-color: ${({ theme }) => theme.colors.opacityCottonWhite};
   color: ${({ theme }) => theme.colors.gray};
   position: relative;
@@ -37,7 +35,7 @@ type Props = {
   fontSize: string;
 };
 
-const Button: React.FC<Props> = (props: PropsWithChildren<Props>) => {
+const Button3d: React.FC<Props> = (props: PropsWithChildren<Props>) => {
   return (
     <Container>
       <Wrapper {...props}>{props.children}</Wrapper>
@@ -45,4 +43,4 @@ const Button: React.FC<Props> = (props: PropsWithChildren<Props>) => {
   );
 };
 
-export default Button;
+export default Button3d;
