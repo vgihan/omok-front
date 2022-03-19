@@ -5,9 +5,9 @@ import styled from "@emotion/styled";
 import ButtonRound from "~components/atoms/ButtonRound";
 import CenterBox from "~components/atoms/CenterBox";
 import Checkbox from "~components/atoms/Checkbox";
-import TextInput from "~components/atoms/TextInput";
+import ModalOff from "~components/atoms/modal/ModalOffButton";
+import ModalTextInput from "~components/atoms/modal/ModalTextInput";
 import TextRighteous from "~components/atoms/TextRighteous";
-import TextRoboto from "~components/atoms/TextRoboto";
 import useAllCheck from "~hooks/useAllCheck";
 import { useMutateRoom } from "~queries/index";
 import { RoomMode } from "~types/model/RoomElement";
@@ -81,25 +81,6 @@ const TextInfoWrapper = styled(CenterBox)`
   height: 47%;
 `;
 
-const TextInputLine = styled(TextRoboto)`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-`;
-
-const TextInfoInput = styled(TextInput)`
-  background-color: ${({ theme, disabled }) => (disabled ? theme.colors.darkGray : theme.colors.lightCharcoal)};
-  width: 40vmin;
-  height: 5vh;
-  border-radius: 0%;
-`;
-
-const TextInputLabel = styled.span`
-  width: 60px;
-  text-align: center;
-`;
-
 const ModalButton = styled(ButtonRound)`
   color: ${({ theme }) => theme.colors.cottonWhite};
   background-color: ${({ theme }) => theme.colors.charcoal};
@@ -115,20 +96,32 @@ const ModalButton = styled(ButtonRound)`
 `;
 
 type Props = {
-  handleOffModal: () => void;
+  offModal: () => void;
 };
 
-const ModalRoomMake: React.FC<Props> = ({ handleOffModal }) => {
+const ModalRoomMake: React.FC<Props> = ({ offModal }) => {
   const [roomInfo, setRoomInfo] = useState<PostRoomRequest>({
     isLock: false,
     mode: RoomMode.SOLO,
     name: "Omok 한 판?",
     password: "",
   });
-  const setAnyRoomInfo = (nextState: {}) => setRoomInfo((prevState) => ({ ...prevState, ...nextState }));
   const isAllCheck = useAllCheck([roomInfo.mode, roomInfo.name]);
 
-  const { mutate } = useMutateRoom();
+  const handleClickSoloButton = () => setRoomInfo((prevState) => ({ ...prevState, mode: RoomMode.SOLO }));
+  const handleClickDoubleButton = () => setRoomInfo((prevState) => ({ ...prevState, mode: RoomMode.DUO }));
+
+  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRoomInfo((prevState) => ({ ...prevState, name: e.currentTarget.value }));
+  };
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRoomInfo((prevState) => ({ ...prevState, password: e.currentTarget.value }));
+  };
+  const handleChangeLockCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRoomInfo((prevState) => ({ ...prevState, isLock: e.target.checked }));
+  };
+
+  const { mutate: createRoom } = useMutateRoom();
 
   return (
     <Container>
@@ -137,64 +130,47 @@ const ModalRoomMake: React.FC<Props> = ({ handleOffModal }) => {
         <SubTitle>new room</SubTitle>
       </TitleBox>
       <CenterBox>
-        <ModeButton
-          onClick={() => setAnyRoomInfo({ mode: RoomMode.SOLO })}
-          isSelected={roomInfo.mode === RoomMode.SOLO}
-        >
+        <ModeButton onClick={handleClickSoloButton} isSelected={roomInfo.mode === RoomMode.SOLO}>
           Solo
         </ModeButton>
       </CenterBox>
       <CenterBox>
-        <ModeButton
-          onClick={() => setAnyRoomInfo({ mode: RoomMode.DOUBLE })}
-          isSelected={roomInfo.mode === RoomMode.DOUBLE}
-        >
-          Double
+        <ModeButton onClick={handleClickDoubleButton} isSelected={roomInfo.mode === RoomMode.DUO}>
+          Duo
         </ModeButton>
       </CenterBox>
       <InputInfoBox>
         <InputInfoSpace>
           <TextInfoWrapper>
-            <TextInputLine>
-              <TextInputLabel>
-                Room
-                <br />
-                name
-              </TextInputLabel>
-              <TextInfoInput value={roomInfo.name} onChange={(e) => setAnyRoomInfo({ name: e.currentTarget.value })} />
-            </TextInputLine>
-            <TextInputLine>
-              <TextInputLabel>pw</TextInputLabel>
-              <TextInfoInput
-                type="password"
-                value={roomInfo.password}
-                onChange={(e) => setAnyRoomInfo({ password: e.currentTarget.value })}
-                disabled={!roomInfo.isLock}
-              />
-            </TextInputLine>
+            <ModalTextInput value={roomInfo.name} onChange={handleChangeName}>
+              Room
+              <br />
+              name
+            </ModalTextInput>
+            <ModalTextInput
+              type="password"
+              value={roomInfo.password}
+              onChange={handleChangePassword}
+              disabled={!roomInfo.isLock}
+            >
+              pw
+            </ModalTextInput>
           </TextInfoWrapper>
           <CenterBox>
             <img src="img/lock.svg" width="35px" height="35px" alt="lock" />
-            <Checkbox
-              isChecked={roomInfo.isLock}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setAnyRoomInfo({ isLock: e.target.checked });
-              }}
-            />
+            <Checkbox isChecked={roomInfo.isLock} onChange={handleChangeLockCheckbox} />
           </CenterBox>
         </InputInfoSpace>
       </InputInfoBox>
       <SubmitButtonBox>
-        <ModalButton
-          onClick={() => {
-            mutate(roomInfo);
-            handleOffModal();
-          }}
-          disabled={!isAllCheck}
-        >
-          OK
-        </ModalButton>
-        <ModalButton onClick={handleOffModal}>NO</ModalButton>
+        <ModalOff offModal={offModal}>
+          <ModalButton onClick={() => createRoom(roomInfo)} disabled={!isAllCheck}>
+            OK
+          </ModalButton>
+        </ModalOff>
+        <ModalOff offModal={offModal}>
+          <ModalButton>NO</ModalButton>
+        </ModalOff>
       </SubmitButtonBox>
     </Container>
   );
