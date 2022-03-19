@@ -14,7 +14,7 @@ const Container = styled.input`
 const TextInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = (
   props: React.InputHTMLAttributes<HTMLInputElement>,
 ) => {
-  return <Container type={props.type || "text"} {...props} />;
+  return <Container type={props.type || "text"} spellCheck={false} {...props} />;
 };
 
 export default TextInput;
