@@ -1,21 +1,11 @@
-import React, { KeyboardEventHandler, useState } from "react";
+import React, { useState } from "react";
 
 import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/button/ButtonRound";
 import TextInput from "~components/atoms/textInput/TextInput";
 import { Chat } from "~types/model/Chat";
-
-const ChatTextInput = styled(TextInput)`
-  font-family: roboto;
-  font-size: 16px;
-  outline: none;
-  border: none;
-  font-size: 16px;
-  background-color: transparent;
-  color: ${({ theme }) => theme.colors.lightGray};
-  width: 80%;
-`;
+import { handlerUtil } from "~utils/Utils";
 
 const Container = styled.div`
   display: flex;
@@ -28,7 +18,20 @@ const Container = styled.div`
   padding: 10px 0px 10px 0px;
 `;
 
-const SendButton = styled(ButtonRound)`
+const ChatTextInput = styled(TextInput)`
+  font-family: roboto;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  background-color: transparent;
+  color: ${({ theme }) => theme.colors.lightGray};
+  width: 80%;
+`;
+
+const SendButton = styled.div``;
+
+const ClearButton = styled(ButtonRound)`
   font-family: roboto;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.lightGray};
@@ -46,16 +49,8 @@ type Props = {
 const ChatInputBox: React.FC<Props> = ({ sendChat }: Props) => {
   const [chat, setChat] = useState("");
 
-  const sendChatAndClear = () => {
-    if (!chat) return;
-    sendChat({ type: "all", sender: "vgihan", content: chat });
-    setChat("");
-  };
-  const handleKeyUp: KeyboardEventHandler = (e) => {
-    if (e.key === "Enter") {
-      sendChatAndClear();
-    }
-  };
+  const send = () => chat && sendChat({ type: "all", sender: "vgihan", content: chat });
+  const clearChat = () => setChat("");
 
   return (
     <Container>
@@ -63,9 +58,11 @@ const ChatInputBox: React.FC<Props> = ({ sendChat }: Props) => {
         className="chat"
         value={chat}
         onChange={(e) => setChat(e.currentTarget.value)}
-        onKeyUp={handleKeyUp}
+        onKeyUp={handlerUtil.enterKeyup(clearChat, send)}
       />
-      <SendButton onClick={sendChatAndClear}>전송</SendButton>
+      <ClearButton onClick={clearChat}>
+        <SendButton onClick={send}>전송</SendButton>
+      </ClearButton>
     </Container>
   );
 };
