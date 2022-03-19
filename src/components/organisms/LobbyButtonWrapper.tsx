@@ -44,18 +44,20 @@ const SearchBox = styled.input`
 
 const LobbyButtonWrapper: React.FC = () => {
   const [isOpenedModal, setIsOpenedModal] = useState<boolean>(false);
+
+  const offModal = () => setIsOpenedModal(false);
+  const openModal = () => setIsOpenedModal(true);
+
   return (
     <Container>
-      {isOpenedModal && (
-        <Portal>
-          <Modal>
-            <ModalRoomMake handleOffModal={() => setIsOpenedModal(false)} />
-          </Modal>
-        </Portal>
-      )}
+      <Portal>
+        <Modal isOpened={isOpenedModal}>
+          <ModalRoomMake offModal={offModal} />
+        </Modal>
+      </Portal>
       <SearchBox placeholder="Search" />
       <ModeButton>Rank mode</ModeButton>
-      <ModeButton onClick={() => setIsOpenedModal(true)}>new room</ModeButton>
+      <ModeButton onClick={openModal}>new room</ModeButton>
     </Container>
   );
 };
