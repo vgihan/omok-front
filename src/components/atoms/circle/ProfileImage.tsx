@@ -7,23 +7,8 @@ const Container = styled.img`
   height: 100px;
 `;
 
-type Props = {
-  src: string;
-  className: string;
-};
-
-const ProfileImage: React.FC<Props> = ({ src, className }: Props) => {
-  return (
-    <Container
-      onError={({ currentTarget }) => {
-        currentTarget.onerror = null;
-        currentTarget.src = "img/collapsed_menu.svg";
-      }}
-      src={src}
-      alt="profile"
-      className={className}
-    ></Container>
-  );
+const ProfileImage: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = (props) => {
+  return <Container onError={(e) => (e.currentTarget.src = "/img/lock.svg")} {...props}></Container>;
 };
 
 export default ProfileImage;
