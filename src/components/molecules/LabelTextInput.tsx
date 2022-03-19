@@ -10,6 +10,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   column-gap: 3vw;
+  width: 100%;
 `;
 
 const LabelTextInput: React.FC<PropsWithChildren<React.InputHTMLAttributes<HTMLInputElement>>> = ({
