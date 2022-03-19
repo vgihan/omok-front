@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
-import CenterBox from "~components/atoms/CenterBox";
-import TextRighteous from "~components/atoms/TextRighteous";
-import TextRoboto from "~components/atoms/TextRoboto";
+import CenterBox from "~components/atoms/flexbox/CenterBox";
+import TextRighteous from "~components/atoms/text/TextRighteous";
+import TextRoboto from "~components/atoms/text/TextRoboto";
 import { Room } from "~types/model/Room";
 
 const Container = styled.div`

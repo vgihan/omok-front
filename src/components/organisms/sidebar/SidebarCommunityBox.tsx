@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
-import ButtonRound from "~components/atoms/ButtonRound";
-import ProfileImage from "~components/atoms/ProfileImage";
-import TextRighteous from "~components/atoms/TextRighteous";
+import ButtonRound from "~components/atoms/button/ButtonRound";
+import ProfileImage from "~components/atoms/circle/ProfileImage";
+import TextRighteous from "~components/atoms/text/TextRighteous";
 import SidebarBoxTitle from "~components/molecules/SidebarBoxTitle";
 
 const Container = styled.div`

@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
 
-import UserInfoBox from "./UserInfoBox";
-
-import Portal from "~components/atoms/Portal";
-import Sidebar from "~components/atoms/Sidebar";
-import TextRighteous from "~components/atoms/TextRighteous";
+import TextRighteous from "~components/atoms/text/TextRighteous";
+import Portal from "~components/molecules/Portal";
+import Sidebar from "~components/molecules/Sidebar";
+import UserInfoBox from "~components/organisms/sidebar/UserInfoBox";
 import useOutsideClick from "~hooks/useOutsideClick";
 
 const Container = styled.div`

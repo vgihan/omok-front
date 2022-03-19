@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import TextRighteous from "~components/atoms/TextRighteous";
+import TextRighteous from "~components/atoms/text/TextRighteous";
 import SidebarBoxTitle from "~components/molecules/SidebarBoxTitle";
 import theme from "~styles/theme";
 

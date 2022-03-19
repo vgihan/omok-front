@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
-import Ball from "~components/atoms/Ball";
-import CenterBox from "~components/atoms/CenterBox";
-import ProfileImage from "~components/atoms/ProfileImage";
-import TextRighteous from "~components/atoms/TextRighteous";
+import Ball from "~components/atoms/circle/Ball";
+import ProfileImage from "~components/atoms/circle/ProfileImage";
+import CenterBox from "~components/atoms/flexbox/CenterBox";
+import TextRighteous from "~components/atoms/text/TextRighteous";
 
 const Container = styled(CenterBox)`
   flex-direction: column;

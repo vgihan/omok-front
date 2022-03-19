@@ -3,8 +3,8 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 
-import ButtonRound from "~components/atoms/ButtonRound";
-import TextRoboto from "~components/atoms/TextRoboto";
+import ButtonRound from "~components/atoms/button/ButtonRound";
+import TextRoboto from "~components/atoms/text/TextRoboto";
 import LabelTextInput from "~components/molecules/LabelTextInput";
 import { useFetchSignup } from "~queries/index";
 import { ErrorResponse } from "~types/response/ErrorResponse";

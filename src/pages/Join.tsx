@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
-import CenterBox from "~components/atoms/CenterBox";
-import JoinInputSpace from "~components/organisms/JoinInputSpace";
+import CenterBox from "~components/atoms/flexbox/CenterBox";
+import JoinInputSpace from "~components/organisms/join/JoinInputSpace";
 
 const Container = styled(CenterBox)`
   position: absolute;

@@ -2,8 +2,8 @@ import { PropsWithChildren } from "react";
 
 import styled from "@emotion/styled";
 
-import TextInput from "~components/atoms/TextInput";
-import TextRighteous from "~components/atoms/TextRighteous";
+import TextRighteous from "~components/atoms/text/TextRighteous";
+import TextInput from "~components/atoms/textInput/TextInput";
 
 const Container = styled.div`
   display: flex;

@@ -2,7 +2,7 @@ import { MouseEventHandler } from "react";
 
 import styled from "@emotion/styled";
 
-import CenterBox from "~components/atoms/CenterBox";
+import CenterBox from "~components/atoms/flexbox/CenterBox";
 
 const FillBox = styled(CenterBox)`
   background-color: ${({ theme }) => theme.colors.lightCharcoal};

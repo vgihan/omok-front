@@ -3,10 +3,9 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 
-import LobbyRoomUnit from "./LobbyRoomUnit";
-
-import CenterBox from "~components/atoms/CenterBox";
-import Spinner from "~components/atoms/Spinner";
+import CenterBox from "~components/atoms/flexbox/CenterBox";
+import Spinner from "~components/atoms/moveElement/Spinner";
+import LobbyRoomUnit from "~components/organisms/lobby/LobbyRoomUnit";
 import { useFetchRooms } from "~queries/index";
 import { ErrorResponse } from "~types/response/ErrorResponse";
 

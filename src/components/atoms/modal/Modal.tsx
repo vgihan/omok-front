@@ -1,3 +1,5 @@
+import { PropsWithChildren } from "react";
+
 import styled from "@emotion/styled";
 
 const Container = styled.div`
@@ -19,11 +21,17 @@ const Wrapper = styled.div`
   height: 70vh;
 `;
 
-const Modal: React.FC = ({ children }) => {
-  return (
+interface Props {
+  isOpened: boolean;
+}
+
+const Modal: React.FC<PropsWithChildren<Props>> = ({ children, isOpened }) => {
+  return isOpened ? (
     <Container>
       <Wrapper>{children}</Wrapper>
     </Container>
+  ) : (
+    <></>
   );
 };
 

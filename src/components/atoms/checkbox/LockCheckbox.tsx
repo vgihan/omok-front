@@ -2,7 +2,7 @@ import { MouseEventHandler } from "react";
 
 import styled from "@emotion/styled";
 
-import Checkbox from "../Checkbox";
+import Checkbox from "./Checkbox";
 
 const Container = styled.div`
   display: flex;

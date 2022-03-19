@@ -3,10 +3,10 @@ import { KeyboardEventHandler, useState } from "react";
 import styled from "@emotion/styled";
 import { useNavigate } from "react-router-dom";
 
-import ButtonRound from "~components/atoms/ButtonRound";
-import Spinner from "~components/atoms/Spinner";
-import TextInput from "~components/atoms/TextInput";
-import TextRighteous from "~components/atoms/TextRighteous";
+import ButtonRound from "~components/atoms/button/ButtonRound";
+import Spinner from "~components/atoms/moveElement/Spinner";
+import TextRighteous from "~components/atoms/text/TextRighteous";
+import TextInput from "~components/atoms/textInput/TextInput";
 import { useFetchSignin } from "~queries/index";
 import { cookieUtil } from "~utils/Utils";
 

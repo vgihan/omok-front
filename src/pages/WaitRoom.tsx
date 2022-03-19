@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
-import CenterBox from "~components/atoms/CenterBox";
-import WaitRoomWrapper from "~components/organisms/WaitRoomWrapper";
+import CenterBox from "~components/atoms/flexbox/CenterBox";
+import WaitRoomWrapper from "~components/organisms/waitroom/WaitRoomWrapper";
 
 const Container = styled(CenterBox)`
   width: 100%;

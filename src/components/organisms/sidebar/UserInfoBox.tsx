@@ -1,7 +1,7 @@
-import Spinner from "~components/atoms/Spinner";
-import SidebarCommunityBox from "~components/organisms/SidebarCommunityBox";
-import SidebarProfileBox from "~components/organisms/SidebarProfileBox";
-import SidebarRankBox from "~components/organisms/SidebarRankBox";
+import Spinner from "~components/atoms/moveElement/Spinner";
+import SidebarCommunityBox from "~components/organisms/sidebar/SidebarCommunityBox";
+import SidebarProfileBox from "~components/organisms/sidebar/SidebarProfileBox";
+import SidebarRankBox from "~components/organisms/sidebar/SidebarRankBox";
 import { useFetchUserInfo } from "~queries/index";
 import { userUtil } from "~utils/Utils";
 

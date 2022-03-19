@@ -2,10 +2,10 @@ import { useState } from "react";
 
 import styled from "@emotion/styled";
 
-import ButtonRound from "~components/atoms/ButtonRound";
-import Modal from "~components/atoms/Modal";
-import Portal from "~components/atoms/Portal";
-import ModalRoomMake from "~components/organisms/ModalRoomMake";
+import ButtonRound from "~components/atoms/button/ButtonRound";
+import Modal from "~components/atoms/modal/Modal";
+import Portal from "~components/molecules/Portal";
+import ModalRoomMake from "~components/organisms/modal/ModalRoomMake";
 
 const Container = styled.div`
   display: flex;

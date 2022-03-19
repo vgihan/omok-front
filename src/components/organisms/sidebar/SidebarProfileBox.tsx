@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
-import ProfileImage from "~components/atoms/ProfileImage";
-import TextRighteous from "~components/atoms/TextRighteous";
+import ProfileImage from "~components/atoms/circle/ProfileImage";
+import TextRighteous from "~components/atoms/text/TextRighteous";
 import SidebarBoxTitle from "~components/molecules/SidebarBoxTitle";
 
 const Container = styled.div`
