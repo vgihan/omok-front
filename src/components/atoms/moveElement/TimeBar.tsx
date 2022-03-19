@@ -25,17 +25,20 @@ const ProgressBox = styled.div<{ time: number }>`
   }
 `;
 
-const TimeBar: React.FC = () => {
+interface Props {
+  sec: number;
+  onEnd: () => void;
+}
+
+const TimeBar: React.FC<Props> = ({ sec, onEnd }) => {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log("end !!");
-    }, 3000);
+    const timer = setTimeout(onEnd, sec * 1000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <Container>
-      <ProgressBox time={30} />
+      <ProgressBox time={sec} />
     </Container>
   );
 };

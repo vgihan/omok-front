@@ -70,7 +70,7 @@ const Play: React.FC = () => {
           <OmokWrapper />
         </FieldContainer>
         <TimeBarContainer>
-          <TimeBar />
+          <TimeBar sec={30} onEnd={() => {}} />
         </TimeBarContainer>
       </GridContainer>
     </>
