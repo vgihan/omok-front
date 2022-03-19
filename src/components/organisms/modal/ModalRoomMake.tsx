@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/button/ButtonRound";
-import LockCheckbox from "~components/atoms/checkbox/LockCheckbox";
 import CenterBox from "~components/atoms/flexbox/CenterBox";
 import ModalOff from "~components/atoms/modal/ModalOffButton";
 import ModalTextInput from "~components/atoms/modal/ModalTextInput";
 import TextRighteous from "~components/atoms/text/TextRighteous";
+import LockCheckbox from "~components/molecules/LockCheckbox";
 import useAllCheck from "~hooks/useAllCheck";
 import { useMutateRoom } from "~queries/index";
 import { RoomMode } from "~types/model/RoomElement";
