@@ -3,7 +3,7 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/button/ButtonRound";
-import Modal from "~components/atoms/modal/Modal";
+import Modal from "~components/molecules/Modal";
 import Portal from "~components/molecules/Portal";
 import ModalRoomMake from "~components/organisms/modal/ModalRoomMake";
 
