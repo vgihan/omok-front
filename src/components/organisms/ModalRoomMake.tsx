@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 import ButtonRound from "~components/atoms/ButtonRound";
 import CenterBox from "~components/atoms/CenterBox";
-import Checkbox from "~components/atoms/Checkbox";
+import LockCheckbox from "~components/atoms/checkbox/LockCheckbox";
 import ModalOff from "~components/atoms/modal/ModalOffButton";
 import ModalTextInput from "~components/atoms/modal/ModalTextInput";
 import TextRighteous from "~components/atoms/TextRighteous";
@@ -30,11 +30,6 @@ const TitleBox = styled(CenterBox)`
   grid-column: 1 / 3;
   grid-row: 1 / 2;
   color: ${({ theme }) => theme.colors.lightGray};
-`;
-
-const InputInfoBox = styled(CenterBox)`
-  grid-column: 1 / 3;
-  grid-row: 3 / 4;
 `;
 
 const SubmitButtonBox = styled(CenterBox)`
@@ -66,19 +61,17 @@ const ModeButton = styled(ButtonRound)<{ isSelected: boolean }>`
   }
 `;
 
-const InputInfoSpace = styled(CenterBox)`
+const InputInfoBox = styled(CenterBox)`
+  padding: 0 3vw 0 3vw;
+  box-sizing: border-box;
   flex-direction: column;
   row-gap: 13%;
-  width: 100%;
-  height: 100%;
   background-color: ${({ theme }) => theme.colors.charcoal};
   border-radius: 2vmin;
-`;
-
-const TextInfoWrapper = styled(CenterBox)`
-  flex-direction: column;
-  justify-content: space-between;
-  height: 47%;
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+  width: 100%;
+  height: 100%;
 `;
 
 const ModalButton = styled(ButtonRound)`
@@ -117,8 +110,8 @@ const ModalRoomMake: React.FC<Props> = ({ offModal }) => {
   const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRoomInfo((prevState) => ({ ...prevState, password: e.currentTarget.value }));
   };
-  const handleChangeLockCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRoomInfo((prevState) => ({ ...prevState, isLock: e.target.checked }));
+  const handleChangeLockCheckbox = () => {
+    setRoomInfo((prevState) => ({ ...prevState, isLock: !prevState.isLock }));
   };
 
   const { mutate: createRoom } = useMutateRoom();
@@ -140,27 +133,20 @@ const ModalRoomMake: React.FC<Props> = ({ offModal }) => {
         </ModeButton>
       </CenterBox>
       <InputInfoBox>
-        <InputInfoSpace>
-          <TextInfoWrapper>
-            <ModalTextInput value={roomInfo.name} onChange={handleChangeName}>
-              Room
-              <br />
-              name
-            </ModalTextInput>
-            <ModalTextInput
-              type="password"
-              value={roomInfo.password}
-              onChange={handleChangePassword}
-              disabled={!roomInfo.isLock}
-            >
-              pw
-            </ModalTextInput>
-          </TextInfoWrapper>
-          <CenterBox>
-            <img src="img/lock.svg" width="35px" height="35px" alt="lock" />
-            <Checkbox isChecked={roomInfo.isLock} onChange={handleChangeLockCheckbox} />
-          </CenterBox>
-        </InputInfoSpace>
+        <ModalTextInput value={roomInfo.name} onChange={handleChangeName}>
+          Room
+          <br />
+          name
+        </ModalTextInput>
+        <ModalTextInput
+          type="password"
+          value={roomInfo.password}
+          onChange={handleChangePassword}
+          disabled={!roomInfo.isLock}
+        >
+          pw
+        </ModalTextInput>
+        <LockCheckbox isChecked={roomInfo.isLock} onClick={handleChangeLockCheckbox} />
       </InputInfoBox>
       <SubmitButtonBox>
         <ModalOff offModal={offModal}>
