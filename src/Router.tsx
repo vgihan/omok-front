@@ -6,6 +6,7 @@ import Join from "~pages/Join";
 import Lobby from "~pages/Lobby";
 import Main from "~pages/Main";
 import Play from "~pages/Play";
+import WaitRoom from "~pages/WaitRoom";
 import { cookieUtil } from "~utils/Utils";
 
 const Router: React.FC = () => {
@@ -16,6 +17,7 @@ const Router: React.FC = () => {
         <Route path="/join" element={<Join />} />
         <Route path="/lobby" element={<PrivateRouter element={<Lobby />} />} />
         <Route path="/play" element={<PrivateRouter element={<Play />} />} />
+        <Route path="/wait-room" element={<PrivateRouter element={<WaitRoom />} />} />
       </Routes>
     </BrowserRouter>
   );
